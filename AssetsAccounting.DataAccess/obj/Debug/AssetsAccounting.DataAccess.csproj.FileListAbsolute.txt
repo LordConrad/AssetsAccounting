@@ -1,0 +1,12 @@
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\AssetsAccountingDb.mdf
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\AssetsAccountingDb_log.ldf
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\AssetsAccounting.DataAccess.dll.config
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\AssetsAccounting.DataAccess.dll
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\AssetsAccounting.DataAccess.pdb
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\EntityFramework.dll
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\EntityFramework.xml
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\obj\Debug\AssetsAccounting.DataAccess.dll
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\obj\Debug\AssetsAccounting.DataAccess.pdb
+d:\Projects\AssetsAccounting\AssetsAccounting.DataAccess\obj\Debug\AssetsAccounting.DataAccess.csprojResolveAssemblyReference.cache
