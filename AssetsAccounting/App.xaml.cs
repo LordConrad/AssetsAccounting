@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using AssetsAccounting.DataAccess.Models;
 using AssetsAccounting.DataAccess.Services;
+using AssetsAccounting.ViewModels;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 
@@ -21,7 +22,18 @@ namespace AssetsAccounting
         {
             IUnityContainer container = new UnityContainer();
 
+            #region register view models
+
+            container.RegisterType<AssetsDictionaryViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ProvidersDictionaryViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ResponsiblesDictionaryViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<AddProviderViewModel>(new ContainerControlledLifetimeManager());
+
+            #endregion
+
+
             container.RegisterType<IAssetService, AssetService>(new ContainerControlledLifetimeManager());
+            
 
             MainWindow mainWindow = container.Resolve<MainWindow>();
             mainWindow.Show();

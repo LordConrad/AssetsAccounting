@@ -22,13 +22,15 @@ namespace AssetsAccounting
         [Dependency]
         public MainViewModel ViewModel
         {
-            set { DataContext = value; }
+            set
+            {
+                DataContext = value;
+            }
         }
-
+        
         public MainWindow()
         {
             InitializeComponent();
-
         }
     }
 }

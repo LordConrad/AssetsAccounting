@@ -6,6 +6,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Label Style="{StaticResource LabelStyle}">Справочник поставщиков</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource LabelStyle}" Content="{Binding HeaderText}"></Label>
+        <Label Content="{Binding ProviderContent}"></Label>
+        <StackPanel Grid.Row="2">
+            <Button Command="{Binding AddProviderCommand}">Добавить</Button>
+        </StackPanel>
     </Grid>
 </UserControl>

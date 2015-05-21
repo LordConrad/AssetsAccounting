@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
+using Microsoft.Practices.Prism.Commands;
 
 namespace AssetsAccounting.ViewModels
 {
@@ -17,7 +17,8 @@ namespace AssetsAccounting.ViewModels
 
         public ICommand AddResponsibleViewCommand
         {
-            get { return new RelayCommand(() => ViewModel = new AddResponsibleViewModel()); }
+            get { return new DelegateCommand(() => ViewModel = new AddResponsibleViewModel()); }
         }
+
     }
 }

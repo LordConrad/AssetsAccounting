@@ -1,7 +1,8 @@
 ﻿<Window x:Class="AssetsAccounting.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title=" Автоматизация учета материальных средств на ОАО «Ивацевичдрев»" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+        Title=" Автоматизация учета материальных средств на ОАО «Ивацевичдрев»" Height="600" Width="800" WindowStartupLocation="CenterScreen"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
