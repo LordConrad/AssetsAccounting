@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AssetsAccounting.Views;
 using Microsoft.Practices.Prism.Commands;
 
 namespace AssetsAccounting.ViewModels
@@ -17,7 +18,7 @@ namespace AssetsAccounting.ViewModels
 
         public ICommand AddResponsibleViewCommand
         {
-            get { return new DelegateCommand(() => ViewModel = new AddResponsibleViewModel()); }
+            get { return new DelegateCommand(() => CurrentView = new AddResponsibleView()); }
         }
 
     }

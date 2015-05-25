@@ -19,18 +19,16 @@ namespace AssetsAccounting
 {
     public partial class MainWindow : Window
     {
-        [Dependency]
-        public MainViewModel ViewModel
-        {
-            set
-            {
-                DataContext = value;
-            }
-        }
         
-        public MainWindow()
+        public MainWindow(IUnityContainer container)
         {
+            DataContext = container.Resolve<MainViewModel>();
+
             InitializeComponent();
         }
+
+        
+
+        
     }
 }

@@ -53,10 +53,8 @@ d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\AddResponsibleView
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\ProvidersDictionaryView.g.cs
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\ResponsiblesDictionaryView.g.cs
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\App.g.cs
-d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\GeneratedInternalTypeHelper.g.cs
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\AssetsAccounting_MarkupCompile.cache
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\AssetsAccounting_MarkupCompile.lref
-d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\App.baml
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\AssetsAccounting.g.resources
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\AssetsAccounting.Properties.Resources.resources
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\AssetsAccounting.csproj.GenerateResource.Cache

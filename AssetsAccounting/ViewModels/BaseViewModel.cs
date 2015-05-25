@@ -4,13 +4,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using Microsoft.Practices.Unity;
 
 namespace AssetsAccounting.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        private BaseViewModel _viewModel;
+        private UserControl _currentView;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -24,18 +25,18 @@ namespace AssetsAccounting.ViewModels
 
         public string HeaderText { get; set; }
 
-        public BaseViewModel ViewModel
+        public UserControl CurrentView
         {
             get
             {
-                return _viewModel;
+                return _currentView;
             }
             set
             {
-                if (_viewModel != value)
+                if (!_currentView.Equals(value))
                 {
-                    _viewModel = value;
-                    RaisePropertyChanged("ViewModel");
+                    _currentView = value;
+                    RaisePropertyChanged("CurrentView");
                 }
             }
         }

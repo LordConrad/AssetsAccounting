@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AssetsAccounting.DataAccess.Services;
+using AssetsAccounting.Views;
 using Microsoft.Practices.Prism.Commands;
 
 namespace AssetsAccounting.ViewModels
@@ -23,7 +24,7 @@ namespace AssetsAccounting.ViewModels
 
         public ICommand AddAssetViewCommand
         {
-            get { return new DelegateCommand(() => ViewModel = new AddAssetViewModel()); }
+            get { return new DelegateCommand(() => CurrentView = new AddAssetView()); }
         }
 
         #endregion

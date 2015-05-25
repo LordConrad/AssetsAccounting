@@ -24,6 +24,7 @@ namespace AssetsAccounting
 
             #region register view models
 
+            container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<AssetsDictionaryViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<ProvidersDictionaryViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<ResponsiblesDictionaryViewModel>(new ContainerControlledLifetimeManager());

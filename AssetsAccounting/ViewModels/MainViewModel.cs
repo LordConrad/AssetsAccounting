@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using AssetsAccounting.DataAccess.Models;
 using AssetsAccounting.DataAccess.Services;
+using AssetsAccounting.Views;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Unity;
 
@@ -23,24 +24,28 @@ namespace AssetsAccounting.ViewModels
         public MainViewModel(IUnityContainer container)
         {
             HeaderText = "MAIN";
+            
             _container = container;
+            
         }
+
+
 
         #region Commands
 
         public ICommand ProvidersDictionaryCommand
         {
-            get { return new DelegateCommand(() => ViewModel = _container.Resolve<ProvidersDictionaryViewModel>()); }
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<ProvidersDictionaryView>()); }
         }
 
         public ICommand ResponsiblesDictionaryCommand
         {
-            get { return new DelegateCommand(() => ViewModel = _container.Resolve<ResponsiblesDictionaryViewModel>()); }
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<ResponsiblesDictionaryView>()); }
         }
 
         public ICommand AssetsDictionaryCommand
         {
-            get { return new DelegateCommand(() => ViewModel = _container.Resolve<AssetsDictionaryViewModel>()); }
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AssetsDictionaryView>()); }
         }
 
         #endregion
