@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AssetsAccounting.DataAccess.Models;
+using AssetsAccounting.ViewModels;
+using Microsoft.Practices.Unity;
 
 namespace AssetsAccounting.Views
 {
@@ -20,9 +23,21 @@ namespace AssetsAccounting.Views
     /// </summary>
     public partial class AddProviderView : UserControl
     {
-        public AddProviderView()
+        private AddProviderViewModel _viewModel;
+
+        public AddProviderView(IUnityContainer container)
         {
+            _viewModel = container.Resolve<AddProviderViewModel>();
+            DataContext = _viewModel;
             InitializeComponent();
         }
+
+        public void EditProvider(Provider provider)
+        {
+            _viewModel.EditProvider(provider);
+        }
+
+
+
     }
 }

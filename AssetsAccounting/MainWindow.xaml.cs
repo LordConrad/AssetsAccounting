@@ -22,7 +22,7 @@ namespace AssetsAccounting
         
         public MainWindow(IUnityContainer container)
         {
-            DataContext = container.Resolve<MainViewModel>();
+            DataContext = container.Resolve<ShellViewModel>();
 
             InitializeComponent();
         }

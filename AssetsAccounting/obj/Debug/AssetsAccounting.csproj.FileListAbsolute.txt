@@ -62,3 +62,5 @@ d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\AssetsAccounting.exe
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\AssetsAccounting.pdb
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\AssetsDictionaryView.baml
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\AssetsDictionaryView.g.cs
+D:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\MainView.baml
+D:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\MainView.g.cs

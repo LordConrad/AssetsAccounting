@@ -1,45 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 using System.Windows.Controls;
-using Microsoft.Practices.Unity;
+using System.Windows.Documents;
+using AssetsAccounting.Annotations;
 
 namespace AssetsAccounting.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        private UserControl _currentView;
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
 
         public string HeaderText { get; set; }
 
-        public UserControl CurrentView
+        [NotifyPropertyChangedInvocator]
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
         {
-            get
-            {
-                return _currentView;
-            }
-            set
-            {
-                if (!_currentView.Equals(value))
-                {
-                    _currentView = value;
-                    RaisePropertyChanged("CurrentView");
-                }
-            }
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-        
     }
 }

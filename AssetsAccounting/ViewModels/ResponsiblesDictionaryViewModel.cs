@@ -16,10 +16,7 @@ namespace AssetsAccounting.ViewModels
             HeaderText = "Справочник материально ответственных лиц";
         }
 
-        public ICommand AddResponsibleViewCommand
-        {
-            get { return new DelegateCommand(() => CurrentView = new AddResponsibleView()); }
-        }
+        
 
     }
 }

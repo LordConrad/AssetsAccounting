@@ -20,14 +20,6 @@ namespace AssetsAccounting.ViewModels
             _assetService = assetService;
         }
         
-        #region Commands
-
-        public ICommand AddAssetViewCommand
-        {
-            get { return new DelegateCommand(() => CurrentView = new AddAssetView()); }
-        }
-
-        #endregion
-
+        
     }
 }

@@ -18,13 +18,13 @@ using Microsoft.Practices.Unity;
 namespace AssetsAccounting.Views
 {
     /// <summary>
-    /// Interaction logic for AddResponsibleView.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class AddResponsibleView : UserControl
+    public partial class MainView : UserControl
     {
-        public AddResponsibleView(IUnityContainer container)
+        public MainView(IUnityContainer container)
         {
-            DataContext = container.Resolve<AddResponsibleViewModel>();
+            DataContext = container.Resolve<MainViewModel>();
             InitializeComponent();
         }
     }

@@ -34,6 +34,7 @@ namespace AssetsAccounting
 
 
             container.RegisterType<IAssetService, AssetService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IProviderService, ProviderService>(new ContainerControlledLifetimeManager());
             
 
             MainWindow mainWindow = container.Resolve<MainWindow>();

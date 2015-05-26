@@ -15,5 +15,6 @@ namespace AssetsAccounting.DataAccess.Models
         }
 
         public DbSet<Asset> Assets { get; set; }
+        public DbSet<Provider> Providers { get; set; }
     }
 }

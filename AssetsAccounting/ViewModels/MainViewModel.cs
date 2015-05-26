@@ -17,40 +17,14 @@ namespace AssetsAccounting.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-
         private readonly IUnityContainer _container;
 
-        
         public MainViewModel(IUnityContainer container)
         {
             HeaderText = "MAIN";
-            
             _container = container;
             
         }
 
-
-
-        #region Commands
-
-        public ICommand ProvidersDictionaryCommand
-        {
-            get { return new DelegateCommand(() => CurrentView = _container.Resolve<ProvidersDictionaryView>()); }
-        }
-
-        public ICommand ResponsiblesDictionaryCommand
-        {
-            get { return new DelegateCommand(() => CurrentView = _container.Resolve<ResponsiblesDictionaryView>()); }
-        }
-
-        public ICommand AssetsDictionaryCommand
-        {
-            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AssetsDictionaryView>()); }
-        }
-
-        #endregion
-
-        
-        
     }
 }

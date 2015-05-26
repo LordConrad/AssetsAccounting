@@ -6,13 +6,19 @@
              xmlns:viewModels="clr-namespace:AssetsAccounting.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-            <Label Grid.Row="0" Style="{StaticResource LabelStyle}" Content="{Binding HeaderText}"></Label>
+        <Label Grid.Row="0" Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
         <StackPanel Grid.Row="2">
             <Button Command="{Binding AddResponsibleViewCommand}">Добавить</Button>
         </StackPanel>

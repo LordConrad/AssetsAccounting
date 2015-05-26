@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AssetsAccounting.DataAccess.Models;
+using AssetsAccounting.DataAccess.Services;
 using AssetsAccounting.Views;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Unity;
@@ -12,23 +14,18 @@ namespace AssetsAccounting.ViewModels
 {
     public class ProvidersDictionaryViewModel : BaseViewModel
     {
-        private readonly IUnityContainer _container;
+        private readonly IProviderService _providerService;
 
         public ProvidersDictionaryViewModel(IUnityContainer container)
         {
             HeaderText = "Справочник поставщиков";
-            _container = container;
+            _providerService = container.Resolve<IProviderService>();
+            Providers = _providerService.GetProviders();
         }
 
-        public string ProviderContent { get { return "provoder content..."; } }
+        public IEnumerable<Provider> Providers { get; set; }
 
-        #region Commands
+        
 
-        public ICommand AddProviderCommand
-        {
-            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AddProviderView>()); }
-        }
-
-        #endregion
     }
 }

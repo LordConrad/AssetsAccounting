@@ -65,9 +65,12 @@
   <ItemGroup>
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\AssetsAccountingContext.cs" />
+    <Compile Include="Models\Provider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AssetService.cs" />
     <Compile Include="Services\IAssetService.cs" />
+    <Compile Include="Services\IProviderService.cs" />
+    <Compile Include="Services\ProviderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssetsAccountingDb.mdf">
