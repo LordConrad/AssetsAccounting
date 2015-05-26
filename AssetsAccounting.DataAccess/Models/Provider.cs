@@ -18,5 +18,8 @@ namespace AssetsAccounting.DataAccess.Models
 
         public string Address { get; set; }
         public string Phone { get; set; }
+
+        [ForeignKey("ProviderId")]
+        public IEnumerable<Asset> Assets { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using AssetsAccounting.DataAccess.Models;
 using AssetsAccounting.DataAccess.Services;
+using AssetsAccounting.Events;
 using AssetsAccounting.Views;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Unity;
@@ -21,6 +22,7 @@ namespace AssetsAccounting.ViewModels
         {
             HeaderText = "Добавление поставщика";
             _providerService = container.Resolve<IProviderService>();
+            
         }
 
         public Provider Provider
@@ -54,6 +56,7 @@ namespace AssetsAccounting.ViewModels
                         Phone = Phone
                     };
                     _providerService.AddProvider(newProvider);
+                    ProvidersListChangedEvent.Instance.Publish(newProvider.Name);
                 });
             }
         }

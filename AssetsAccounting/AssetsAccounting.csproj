@@ -94,6 +94,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Events\AssetsListChangedEvent.cs" />
+    <Compile Include="Events\ProvidersListChangedEvent.cs" />
+    <Compile Include="Events\ResponsiblesListChangedEvent.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\AddAssetViewModel.cs" />
     <Compile Include="ViewModels\AddProviderViewModel.cs" />

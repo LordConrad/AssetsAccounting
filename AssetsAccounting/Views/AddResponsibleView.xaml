@@ -18,8 +18,24 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Style="{StaticResource LabelStyle}" Content="{Binding HeaderText}"></Label>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">ФИО мат.ответственного</Label>
+            <TextBox Grid.Row="1" Text="{Binding Name}"></TextBox>
+            <Label Grid.Row="2">Должность</Label>
+            <TextBox Grid.Row="3" Text="{Binding Position}"></TextBox>
+            <Label Grid.Row="2">Номер доверенности</Label>
+            <TextBox Grid.Row="3" Text="{Binding AuthorityNumber}"></TextBox>
+        </Grid>
         <StackPanel Grid.Row="2">
-            <Button Command="{Binding AddResponsibleCommand}">Добавитьsdfsdfsdfsdf</Button>
+            <Button Command="{Binding AddResponsibleCommand}">Добавить</Button>
         </StackPanel>
     </Grid>
 </UserControl>

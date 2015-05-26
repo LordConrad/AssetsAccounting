@@ -6,6 +6,8 @@ namespace AssetsAccounting.DataAccess.Services
     public interface IAssetService
     {
         IEnumerable<Asset> GetAssets();
-        bool AddAsset(Asset newAsset);
+        Asset GetAsset(int id);
+        void AddAsset(Asset newAsset);
+        void RemoveAsset(int id);
     }
 }

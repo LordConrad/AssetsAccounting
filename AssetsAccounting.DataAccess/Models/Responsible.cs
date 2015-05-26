@@ -8,22 +8,19 @@ using System.Threading.Tasks;
 
 namespace AssetsAccounting.DataAccess.Models
 {
-    [Table("Assets")]
-    public class Asset
+    [Table("Responsibles")]
+    public class Responsible
     {
         [Key]
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
 
-        public string DocNumber { get; set; }
+        public string Position { get; set; }
+        public string AuthorityNumber { get; set; }
 
-        public int ProviderId { get; set; }
-
-        [ForeignKey("ProviderId")]
-        public Provider Provider { get; set; }
-
-        [ForeignKey("AssetId")]
+        [ForeignKey("ResponsibleId")]
         public IEnumerable<ResponsiblesAssets> ResponsiblesAssets { get; set; }
+
     }
 }
