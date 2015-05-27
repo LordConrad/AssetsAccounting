@@ -15,15 +15,16 @@ namespace AssetsAccounting.DataAccess.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-
-        public string DocNumber { get; set; }
-
-        public int ProviderId { get; set; }
+        
+        public int? ProviderId { get; set; }
 
         [ForeignKey("ProviderId")]
-        public Provider Provider { get; set; }
+        public virtual Provider Provider { get; set; }
 
         [ForeignKey("AssetId")]
-        public IEnumerable<ResponsiblesAssets> ResponsiblesAssets { get; set; }
+        public virtual ICollection<ResponsiblesAssets> ResponsiblesAssets { get; set; }
+
+        [ForeignKey("StoredAssetId")]
+        public virtual ICollection<StoredAssets> StoredAssets { get; set; } 
     }
 }

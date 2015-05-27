@@ -31,8 +31,8 @@
             <TextBox Grid.Row="1" Text="{Binding Name}"></TextBox>
             <Label Grid.Row="2">Должность</Label>
             <TextBox Grid.Row="3" Text="{Binding Position}"></TextBox>
-            <Label Grid.Row="2">Номер доверенности</Label>
-            <TextBox Grid.Row="3" Text="{Binding AuthorityNumber}"></TextBox>
+            <Label Grid.Row="4">Номер доверенности</Label>
+            <TextBox Grid.Row="5" Text="{Binding AuthorityNumber}"></TextBox>
         </Grid>
         <StackPanel Grid.Row="2">
             <Button Command="{Binding AddResponsibleCommand}">Добавить</Button>

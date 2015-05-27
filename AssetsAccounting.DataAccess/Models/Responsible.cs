@@ -20,7 +20,7 @@ namespace AssetsAccounting.DataAccess.Models
         public string AuthorityNumber { get; set; }
 
         [ForeignKey("ResponsibleId")]
-        public IEnumerable<ResponsiblesAssets> ResponsiblesAssets { get; set; }
+        public virtual ICollection<ResponsiblesAssets> ResponsiblesAssets { get; set; }
 
     }
 }

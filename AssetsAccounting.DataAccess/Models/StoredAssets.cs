@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace AssetsAccounting.DataAccess.Models
 {
-    [Table("Providers")]
-    public class Provider
+    [Table("StoredAssets")]
+    public class StoredAssets
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
 
-        public string Address { get; set; }
-        public string Phone { get; set; }
+        public int StoredAssetId { get; set; }
+        public string DocNumber { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Date { get; set; }
 
-        [ForeignKey("ProviderId")]
-        public virtual ICollection<Asset> Assets { get; set; }
+        [ForeignKey("AssetId")]
+        public virtual Asset Asset { get; set; }
     }
 }

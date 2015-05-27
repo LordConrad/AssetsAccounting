@@ -19,8 +19,9 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
+        <ListView Grid.Row="1" ItemsSource="{Binding Responsibles}" DisplayMemberPath="Name"></ListView>
         <StackPanel Grid.Row="2">
-            <Button Command="{Binding AddResponsibleViewCommand}">Добавить</Button>
+            <Button Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.AddResponsibleViewCommand}">Добавить</Button>
         </StackPanel>
     </Grid>
 </UserControl>

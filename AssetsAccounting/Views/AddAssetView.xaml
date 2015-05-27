@@ -12,6 +12,25 @@
         </Style>
     </UserControl.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
         <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">Наименование мат.ценности</Label>
+            <TextBox Grid.Row="1" Text="{Binding Name}"></TextBox>
+
+        </Grid>
+        <Button Grid.Row="2" Command="{Binding SaveAssetCommand}">Сохранить</Button>
     </Grid>
 </UserControl>

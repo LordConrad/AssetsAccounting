@@ -16,12 +16,13 @@ namespace AssetsAccounting.DataAccess.Models
 
         public int ResponsibleId { get; set; }
         public int AssetId { get; set; }
-        public int Count { get; set; }
+        public int Quantity { get; set; }
         public DateTime Date { get; set; }
+        public string DocNumber { get; set; }
 
         [ForeignKey("ResponsibleId")]
-        public Responsible Responsible { get; set; }
+        public virtual Responsible Responsible { get; set; }
         [ForeignKey("AssetId")]
-        public Asset Asset { get; set; }
+        public virtual Asset Asset { get; set; }
     }
 }
