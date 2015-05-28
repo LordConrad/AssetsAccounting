@@ -89,22 +89,22 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Xceed.Wpf.AvalonDock">
-      <HintPath>C:\Users\sbutkevich\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <HintPath>C:\Users\Conrad\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
-      <HintPath>C:\Users\sbutkevich\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <HintPath>C:\Users\Conrad\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
-      <HintPath>C:\Users\sbutkevich\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <HintPath>C:\Users\Conrad\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
-      <HintPath>C:\Users\sbutkevich\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <HintPath>C:\Users\Conrad\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Wpf.DataGrid">
-      <HintPath>C:\Users\sbutkevich\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.DataGrid.dll</HintPath>
+      <HintPath>C:\Users\Conrad\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.DataGrid.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Wpf.Toolkit">
-      <HintPath>C:\Users\sbutkevich\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.Toolkit.dll</HintPath>
+      <HintPath>C:\Users\Conrad\Downloads\Extended WPF Toolkit Binaries\Xceed.Wpf.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -116,17 +116,22 @@
     <Compile Include="Events\ProvidersListChangedEvent.cs" />
     <Compile Include="Events\ResponsiblesListChangedEvent.cs" />
     <Compile Include="Events\StoredAssetsListChangedEvent.cs" />
+    <Compile Include="Events\TrashedAssetsListChangedEvent.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\AddAssetViewModel.cs" />
     <Compile Include="ViewModels\AddProviderViewModel.cs" />
     <Compile Include="ViewModels\AddResponsibleViewModel.cs" />
     <Compile Include="ViewModels\AssetsDictionaryViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\IncomingAssetDictionaryViewModel.cs" />
     <Compile Include="ViewModels\IncomingAssetsRegistrationViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MoveAssetViewModel.cs" />
     <Compile Include="ViewModels\ProvidersDictionaryViewModel.cs" />
     <Compile Include="ViewModels\ResponsiblesDictionaryViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\TrashAssetViewModel.cs" />
+    <Compile Include="ViewModels\TrashedAssetsDictionaryViewModel.cs" />
     <Compile Include="Views\AddAssetView.xaml.cs">
       <DependentUpon>AddAssetView.xaml</DependentUpon>
     </Compile>
@@ -148,11 +153,20 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MoveAssetView.xaml.cs">
+      <DependentUpon>MoveAssetView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProvidersDictionaryView.xaml.cs">
       <DependentUpon>ProvidersDictionaryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ResponsiblesDictionaryView.xaml.cs">
       <DependentUpon>ResponsiblesDictionaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrashAssetView.xaml.cs">
+      <DependentUpon>TrashAssetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrashedAssetsDictionaryView.xaml.cs">
+      <DependentUpon>TrashedAssetsDictionaryView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -194,11 +208,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MoveAssetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProvidersDictionaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ResponsiblesDictionaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrashAssetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrashedAssetsDictionaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

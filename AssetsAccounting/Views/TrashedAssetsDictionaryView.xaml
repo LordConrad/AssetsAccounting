@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AssetsAccounting.Views.IncomingAssetDictionaryView"
+﻿<UserControl x:Class="AssetsAccounting.Views.TrashedAssetsDictionaryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,15 +6,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListView ItemsSource="{Binding StoredAssets}">
+        <ListView ItemsSource="{Binding TrashedAssets}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Материал" DisplayMemberBinding="{Binding Asset.Name}"></GridViewColumn>
                         <GridViewColumn Header="Поставщик" DisplayMemberBinding="{Binding Provider.Name}"></GridViewColumn>
                         <GridViewColumn Header="Дата поступления" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                        <GridViewColumn Header="Дата списания" DisplayMemberBinding="{Binding TrashedDate}"></GridViewColumn>
                         <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding Quantity}"></GridViewColumn>
-                        <GridViewColumn Header="Номер накладной" DisplayMemberBinding="{Binding DocNumber}"></GridViewColumn>
+                        <GridViewColumn Header="Номер акта о списании" DisplayMemberBinding="{Binding DocNumber}"></GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

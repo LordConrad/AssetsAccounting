@@ -16,10 +16,11 @@ namespace AssetsAccounting.DataAccess.Models
         [Required]
         public string Name { get; set; }
         
-        [ForeignKey("AssetId")]
+        [ForeignKey("ResponsibleAssetId")]
         public virtual ICollection<ResponsiblesAssets> ResponsiblesAssets { get; set; }
-
         [ForeignKey("StoredAssetId")]
-        public virtual ICollection<StoredAssets> StoredAssets { get; set; } 
+        public virtual ICollection<StoredAsset> StoredAssets { get; set; } 
+        [ForeignKey("TrashedAssetId")]
+        public virtual ICollection<TrashedAsset> TrashedAssets { get; set; } 
     }
 }

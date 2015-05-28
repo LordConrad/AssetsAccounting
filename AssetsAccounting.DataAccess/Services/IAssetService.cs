@@ -9,6 +9,11 @@ namespace AssetsAccounting.DataAccess.Services
         Asset GetAsset(int id);
         void AddAsset(Asset newAsset);
         void RemoveAsset(int id);
-        void AddStoredAsset(StoredAssets asset);
+        void AddStoredAsset(StoredAsset asset);
+        IEnumerable<StoredAsset> GetStoredAssets();
+        IEnumerable<TrashedAsset> GetTrashedAssets();
+        void TrashAsset(TrashedAsset trashAsset);
+        void AddResponsibleAsset(ResponsiblesAssets movedAsset);
+        void SetQuantityStoredAsset(int id, int quantity);
     }
 }

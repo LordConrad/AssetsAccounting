@@ -20,6 +20,6 @@ namespace AssetsAccounting.DataAccess.Models
         public string Phone { get; set; }
 
         [ForeignKey("StoredProviderId")]
-        public virtual ICollection<StoredAssets> StoredAssets { get; set; }
+        public virtual ICollection<StoredAsset> StoredAssets { get; set; }
     }
 }

@@ -85,6 +85,21 @@ namespace AssetsAccounting.ViewModels
         {
             get { return new DelegateCommand(() => CurrentView = _container.Resolve<IncomingAssetDictionaryView>()); }
         }
+
+        public ICommand TrashAssetViewCommand
+        {
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<TrashAssetView>()); }
+        }
+
+        public ICommand TrashAssetsDictionaryViewCommand
+        {
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<TrashedAssetsDictionaryView>()); }
+        }
+
+        public ICommand MoveAssetViewCommand
+        {
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<MoveAssetView>()); }
+        }
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;

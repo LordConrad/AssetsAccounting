@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using AssetsAccounting.DataAccess.Models;
 
 namespace AssetsAccounting.DataAccess.Services
@@ -40,7 +41,7 @@ namespace AssetsAccounting.DataAccess.Services
             }
         }
 
-        public void AddStoredAsset(StoredAssets asset)
+        public void AddStoredAsset(StoredAsset asset)
         {
             try
             {
@@ -48,6 +49,98 @@ namespace AssetsAccounting.DataAccess.Services
                 {
                     context.StoredAssets.Add(asset);
                     context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        public IEnumerable<StoredAsset> GetStoredAssets()
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    return context.StoredAssets
+                        .Include(x => x.Asset)
+                        .Include(x => x.Provider)
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
+        }
+
+        
+        public IEnumerable<TrashedAsset> GetTrashedAssets()
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    return context.TrashedAssets
+                        .Include(x => x.Asset)
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
+        }
+
+        public void TrashAsset(TrashedAsset trashAsset)
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    context.TrashedAssets.Add(trashAsset);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        public void AddResponsibleAsset(ResponsiblesAssets movedAsset)
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    context.ResponsiblesAssets.Add(movedAsset);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        public void SetQuantityStoredAsset(int id, int quantity)
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    var asset = context.StoredAssets.FirstOrDefault(x => x.Id.Equals(id));
+                    if (asset != null)
+                    {
+                        if (quantity <= 0)
+                        {
+                            context.StoredAssets.Remove(asset);
+                        }
+                        else
+                        {
+                            asset.Quantity = quantity;
+                        }
+                        context.SaveChanges();
+                    }
                 }
             }
             catch (Exception ex)

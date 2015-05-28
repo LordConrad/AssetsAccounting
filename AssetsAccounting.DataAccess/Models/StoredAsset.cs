@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace AssetsAccounting.DataAccess.Models
 {
     [Table("StoredAssets")]
-    public class StoredAssets
+    public class StoredAsset
     {
         [Key]
         public int Id { get; set; }

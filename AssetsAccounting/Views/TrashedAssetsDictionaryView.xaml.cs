@@ -12,24 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using AssetsAccounting.DataAccess.Models;
-using AssetsAccounting.DataAccess.Services;
-using AssetsAccounting.Events;
 using AssetsAccounting.ViewModels;
 using Microsoft.Practices.Unity;
 
 namespace AssetsAccounting.Views
 {
     /// <summary>
-    /// Interaction logic for IncomingAssetDictionaryView.xaml
+    /// Interaction logic for TrashedAssetsDictionaryView.xaml
     /// </summary>
-    public partial class IncomingAssetDictionaryView : UserControl
+    public partial class TrashedAssetsDictionaryView : UserControl
     {
-        public IncomingAssetDictionaryView(IUnityContainer container)
+        public TrashedAssetsDictionaryView(IUnityContainer container)
         {
-            DataContext = container.Resolve<IncomingAssetDictionaryViewModel>();
+            DataContext = container.Resolve<TrashedAssetsDictionaryViewModel>();
             InitializeComponent();
         }
-
     }
 }

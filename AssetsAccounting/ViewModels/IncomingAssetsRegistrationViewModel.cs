@@ -48,7 +48,7 @@ namespace AssetsAccounting.ViewModels
             {
                 return new DelegateCommand(() =>
                 {
-                    var newIncomingAsset = new StoredAssets
+                    var newIncomingAsset = new StoredAsset
                     {
                         Asset = SelectedAsset,
                         Date = Date,

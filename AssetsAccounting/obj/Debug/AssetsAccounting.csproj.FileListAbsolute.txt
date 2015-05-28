@@ -82,3 +82,11 @@ D:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\sv\Xceed.Wpf.AvalonDock.
 D:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 D:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\IncomingAssetsRegistrationView.baml
 D:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\IncomingAssetsRegistrationView.g.cs
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\IncomingAssetDictionaryView.baml
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\IncomingAssetDictionaryView.g.cs
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\TrashedAssetsDictionaryView.baml
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\TrashedAssetsDictionaryView.g.cs
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\TrashAssetView.baml
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\TrashAssetView.g.cs
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\MoveAssetView.baml
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\MoveAssetView.g.cs

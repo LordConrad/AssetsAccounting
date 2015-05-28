@@ -8,21 +8,19 @@ using System.Threading.Tasks;
 
 namespace AssetsAccounting.DataAccess.Models
 {
-    [Table("ResponsiblesAssets")]
-    public class ResponsiblesAssets
+    [Table("TrashedAssets")]
+    public class TrashedAsset
     {
         [Key]
         public int Id { get; set; }
 
-        public int ResponsibleId { get; set; }
-        public int ResponsibleAssetId { get; set; }
+        public int TrashedAssetId { get; set; }
+        public string DocNumber { get; set; }
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
-        public string DocNumber { get; set; }
+        public DateTime TrashedDate { get; set; }
 
-        [ForeignKey("ResponsibleId")]
-        public virtual Responsible Responsible { get; set; }
-        [ForeignKey("ResponsibleAssetId")]
+        [ForeignKey("TrashedAssetId")]
         public virtual Asset Asset { get; set; }
     }
 }

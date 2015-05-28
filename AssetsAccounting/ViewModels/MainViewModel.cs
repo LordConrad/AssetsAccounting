@@ -21,7 +21,7 @@ namespace AssetsAccounting.ViewModels
 
         public MainViewModel(IUnityContainer container)
         {
-            HeaderText = "MAIN";
+            HeaderText = "Автоматизация учета материальных средств на ОАО «Ивацевичдрев»";
             _container = container;
             
         }
