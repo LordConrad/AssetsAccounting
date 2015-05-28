@@ -40,6 +40,21 @@ namespace AssetsAccounting.DataAccess.Services
             }
         }
 
+        public void AddStoredAsset(StoredAssets asset)
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    context.StoredAssets.Add(asset);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
         public void AddAsset(Asset newAsset)
         {
             try

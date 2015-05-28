@@ -8,19 +8,20 @@ using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace AssetsAccounting.Events
 {
-    internal class ProvidersListChangedEvent : CompositePresentationEvent<string>
+    internal class StoredAssetsListChangedEvent : CompositePresentationEvent<string>
     {
-        private static readonly ProvidersListChangedEvent Event;
+        private static readonly StoredAssetsListChangedEvent Event;
 
-        static ProvidersListChangedEvent()
+        static StoredAssetsListChangedEvent()
         {
             EventAggregator eventAggregator = new EventAggregator();
-            Event = eventAggregator.GetEvent<ProvidersListChangedEvent>();
+            Event = eventAggregator.GetEvent<StoredAssetsListChangedEvent>();
         }
 
-        public static ProvidersListChangedEvent Instance
+        public static StoredAssetsListChangedEvent Instance
         {
             get { return Event; }
         }
+
     }
 }

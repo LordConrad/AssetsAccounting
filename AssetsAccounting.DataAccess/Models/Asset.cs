@@ -16,11 +16,6 @@ namespace AssetsAccounting.DataAccess.Models
         [Required]
         public string Name { get; set; }
         
-        public int? ProviderId { get; set; }
-
-        [ForeignKey("ProviderId")]
-        public virtual Provider Provider { get; set; }
-
         [ForeignKey("AssetId")]
         public virtual ICollection<ResponsiblesAssets> ResponsiblesAssets { get; set; }
 

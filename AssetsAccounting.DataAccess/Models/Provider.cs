@@ -19,7 +19,7 @@ namespace AssetsAccounting.DataAccess.Models
         public string Address { get; set; }
         public string Phone { get; set; }
 
-        [ForeignKey("ProviderId")]
-        public virtual ICollection<Asset> Assets { get; set; }
+        [ForeignKey("StoredProviderId")]
+        public virtual ICollection<StoredAssets> StoredAssets { get; set; }
     }
 }

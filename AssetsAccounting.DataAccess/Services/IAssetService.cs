@@ -9,5 +9,6 @@ namespace AssetsAccounting.DataAccess.Services
         Asset GetAsset(int id);
         void AddAsset(Asset newAsset);
         void RemoveAsset(int id);
+        void AddStoredAsset(StoredAssets asset);
     }
 }

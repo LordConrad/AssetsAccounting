@@ -10,18 +10,17 @@ namespace AssetsAccounting.Events
 {
     internal class ResponsiblesListChangedEvent : CompositePresentationEvent<string>
     {
-        private static readonly EventAggregator _EventAggregator;
-        private static readonly ResponsiblesListChangedEvent _Event;
+        private static readonly ResponsiblesListChangedEvent Event;
 
         static ResponsiblesListChangedEvent()
         {
-            _EventAggregator = new EventAggregator();
-            _Event = _EventAggregator.GetEvent<ResponsiblesListChangedEvent>();
+            EventAggregator eventAggregator = new EventAggregator();
+            Event = eventAggregator.GetEvent<ResponsiblesListChangedEvent>();
         }
 
         public static ResponsiblesListChangedEvent Instance
         {
-            get { return _Event; }
+            get { return Event; }
         }
     }
 }
