@@ -30,7 +30,7 @@ namespace AssetsAccounting.DataAccess.Services
         {
             using (var context = new AssetsAccountingContext())
             {
-                context.Entry(provider).State = EntityState.Added;
+                context.Providers.Attach(provider);
                 context.SaveChanges();
             }
         }

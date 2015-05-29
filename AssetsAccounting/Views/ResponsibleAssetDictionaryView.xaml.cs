@@ -12,25 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using AssetsAccounting.DataAccess.Models;
+using AssetsAccounting.DataAccess.Services;
 using AssetsAccounting.ViewModels;
 using Microsoft.Practices.Unity;
 
 namespace AssetsAccounting.Views
 {
     /// <summary>
-    /// Interaction logic for AddProviderView.xaml
+    /// Interaction logic for ResponsibleAssetDictionaryView.xaml
     /// </summary>
-    public partial class AddProviderView : UserControl
+    public partial class ResponsibleAssetDictionaryView : UserControl
     {
-        private AddProviderViewModel _viewModel;
-
-        public AddProviderView(IUnityContainer container)
+        public ResponsibleAssetDictionaryView(IUnityContainer container)
         {
-            _viewModel = container.Resolve<AddProviderViewModel>();
-            DataContext = _viewModel;
+            DataContext = container.Resolve<ResponsibleAssetDictionaryViewModel>();
             InitializeComponent();
         }
-
     }
 }

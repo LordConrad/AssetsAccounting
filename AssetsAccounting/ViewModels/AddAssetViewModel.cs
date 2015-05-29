@@ -15,6 +15,7 @@ namespace AssetsAccounting.ViewModels
     public class AddAssetViewModel : BaseViewModel
     {
         private readonly IAssetService _assetService;
+        private string _name;
 
         public AddAssetViewModel(IUnityContainer container)
         {
@@ -22,7 +23,19 @@ namespace AssetsAccounting.ViewModels
             _assetService = container.Resolve<IAssetService>();
         }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    RaisePropertyChanged();
+                    RaisePropertyChanged("SaveAssetCommand");
+                }
+            }
+        }
 
         public ICommand SaveAssetCommand
         {
@@ -36,7 +49,7 @@ namespace AssetsAccounting.ViewModels
                     };
                     _assetService.AddAsset(newAsset);
                     AssetsListChangedEvent.Instance.Publish(Name);
-                });
+                }, () => !string.IsNullOrEmpty(Name));
             }
         }
     }

@@ -6,6 +6,12 @@
              mc:Ignorable="d" 
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -14,10 +20,12 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label>Материал</Label>
-        <ComboBox Grid.Row="1" ItemsSource="{Binding Assets}" DisplayMemberPath="Asset.Name" SelectedItem="{Binding SelectedAsset}"></ComboBox>
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
+        <Label Grid.Row="0" Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
+        <Label Grid.Row="1">Материал</Label>
+        <ComboBox Grid.Row="2" ItemsSource="{Binding Assets}" DisplayMemberPath="Asset.Name" SelectedItem="{Binding SelectedAsset}"></ComboBox>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
                 <Label>Количество на списание</Label>
                 <xctk:IntegerUpDown Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" Minimum="0" Maximum="{Binding QuantityMax}"></xctk:IntegerUpDown>
@@ -27,8 +35,8 @@
                 <Label Content="{Binding OveralQuantity, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></Label>
             </StackPanel>
         </StackPanel>
-        <Label Grid.Row="3">Номер акта на списание</Label>
-        <TextBox Grid.Row="4" Text="{Binding DocNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <Button Grid.Row="5" Command="{Binding TrashAssetCommand}">Списать</Button>
+        <Label Grid.Row="4">Номер акта на списание</Label>
+        <TextBox Grid.Row="5" Text="{Binding DocNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Button Grid.Row="6" Command="{Binding TrashAssetCommand}">Списать</Button>
     </Grid>
 </UserControl>

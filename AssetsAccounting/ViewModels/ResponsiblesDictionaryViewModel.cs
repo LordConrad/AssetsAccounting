@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Collections.Generic;
 using AssetsAccounting.DataAccess.Models;
 using AssetsAccounting.DataAccess.Services;
 using AssetsAccounting.Events;
-using AssetsAccounting.Views;
-using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Unity;
 
 namespace AssetsAccounting.ViewModels
@@ -23,6 +16,7 @@ namespace AssetsAccounting.ViewModels
             _responsibleService = container.Resolve<IResponsibleService>();
             UpdateResponsiblesList(string.Empty);
             ResponsiblesListChangedEvent.Instance.Subscribe(UpdateResponsiblesList);
+            ResponsibleAssetsListChangedEvent.Instance.Subscribe(UpdateResponsiblesList);
         }
 
         public IEnumerable<Responsible> Responsibles { get; set; }

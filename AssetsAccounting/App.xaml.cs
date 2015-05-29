@@ -24,6 +24,15 @@ namespace AssetsAccounting
 
             #region register view models
 
+            container.RegisterType<AddAssetViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<AddResponsibleViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IncomingAssetDictionaryViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IncomingAssetsRegistrationViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<MoveAssetViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ResponsibleAssetDictionaryViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ShellViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<TrashAssetViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<TrashedAssetsDictionaryViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<AssetsDictionaryViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<ProvidersDictionaryViewModel>(new ContainerControlledLifetimeManager());
@@ -36,6 +45,7 @@ namespace AssetsAccounting
             container.RegisterType<IAssetService, AssetService>(new ContainerControlledLifetimeManager());
             container.RegisterType<IProviderService, ProviderService>(new ContainerControlledLifetimeManager());
             container.RegisterType<IResponsibleService, ResponsibleService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IUserService, UserService>(new ContainerControlledLifetimeManager());
             
 
             MainWindow mainWindow = container.Resolve<MainWindow>();

@@ -11,20 +11,18 @@
         <DockPanel Grid.Row="0">
             <Menu IsMainMenu="True" DockPanel.Dock="Top">
             <MenuItem Header="Поступление">
-                <MenuItem Header="Регистрация поступления материалов" Command="{Binding IncomingAssetRegistrationCommand}"></MenuItem>
+                    <MenuItem Header="Регистрация поступления материалов" Command="{Binding IncomingAssetRegistrationCommand}" IsEnabled="{Binding IsEditEnable}"></MenuItem>
             </MenuItem>
             <MenuItem Header="Списание">
-                    <MenuItem Header="Списание материалов" Command="{Binding TrashAssetViewCommand}"></MenuItem>
+                    <MenuItem Header="Списание материалов" Command="{Binding TrashAssetViewCommand}" IsEnabled="{Binding IsEditEnable}"></MenuItem>
                 </MenuItem>
             <MenuItem Header="Перемещение">
-                    <MenuItem Header="Перемещение материалов" Command="{Binding MoveAssetViewCommand}"></MenuItem>
+                    <MenuItem Header="Перемещение материалов" Command="{Binding MoveAssetViewCommand}" IsEnabled="{Binding IsEditEnable}"></MenuItem>
                 </MenuItem>
             <MenuItem Header="Отчеты">
-                    <MenuItem Header="Поступление материалов" Command="{Binding IncomingAssetDictionaryCommand}"></MenuItem>
-                    <MenuItem Header="Перемещение материалов" Command="{Binding MoveAssetDictionaryViewCommand}"></MenuItem>
-                    <MenuItem Header="Списание материалов" Command="{Binding TrashAssetsDictionaryViewCommand}"></MenuItem>
-                    <MenuItem Header="Материалы на мат.отв. лице"></MenuItem>
-                    <MenuItem Header="Материалы на складе"></MenuItem>
+                    <MenuItem Header="Списанные материалы" Command="{Binding TrashAssetsDictionaryViewCommand}"></MenuItem>
+                    <MenuItem Header="Материалы на мат.отв. лице" Command="{Binding ResponsibleAssetDictionaryViewCommand}"></MenuItem>
+                    <MenuItem Header="Материалы на складе" Command="{Binding IncomingAssetDictionaryCommand}"></MenuItem>
                 </MenuItem>
             <MenuItem Header="Справочники">
                     <MenuItem Header="Справочник поставщиков" Command="{Binding ProvidersDictionaryCommand}"></MenuItem>

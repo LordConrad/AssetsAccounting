@@ -17,6 +17,9 @@ namespace AssetsAccounting.ViewModels
     {
         private Provider _provider;
         private readonly IProviderService _providerService;
+        private string _name;
+        private string _address;
+        private string _phone;
 
         public AddProviderViewModel(IUnityContainer container)
         {
@@ -38,11 +41,6 @@ namespace AssetsAccounting.ViewModels
             }
         }
 
-        public void EditProvider(Provider provider)
-        {
-            _provider = provider;
-        }
-
         public ICommand AddProviderCommand
         {
             get
@@ -57,14 +55,48 @@ namespace AssetsAccounting.ViewModels
                     };
                     _providerService.AddProvider(newProvider);
                     ProvidersListChangedEvent.Instance.Publish(newProvider.Name);
-                });
+                }, () => !string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Address) && !string.IsNullOrEmpty(Phone));
             }
         }
-    
 
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
 
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public string Address
+        {
+            get { return _address; }
+            set
+            {
+                if (_name != value)
+                {
+                    _address = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public string Phone
+        {
+            get { return _phone; }
+            set
+            {
+                if (_phone != null)
+                {
+                    _phone = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
     }
 }

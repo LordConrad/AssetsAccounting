@@ -9,9 +9,10 @@ namespace AssetsAccounting.DataAccess.Models
 {
     public class AssetsAccountingContext : DbContext
     {
-        public AssetsAccountingContext() : base("DefaultConnection")
+        public AssetsAccountingContext()
+            : base("DefaultConnection")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AssetsAccountingContext>());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         public DbSet<Asset> Assets { get; set; }
@@ -20,5 +21,26 @@ namespace AssetsAccounting.DataAccess.Models
         public DbSet<ResponsiblesAssets> ResponsiblesAssets { get; set; }
         public DbSet<StoredAsset> StoredAssets { get; set; }
         public DbSet<TrashedAsset> TrashedAssets { get; set; }
+        public DbSet<User> Users { get; set; }
+    }
+
+    public class DatabaseInitializer : DropCreateDatabaseAlways<AssetsAccountingContext>
+    {
+        protected override void Seed(AssetsAccountingContext context)
+        {
+            context.Users.Add(new User
+            {
+                Username = "admin",
+                Password = "adm1n",
+                IsEditEnable = true
+            });
+            context.Users.Add(new User
+            {
+                Username = "user",
+                Password = "u5er"
+            });
+            context.SaveChanges();
+            base.Seed(context);
+        }
     }
 }

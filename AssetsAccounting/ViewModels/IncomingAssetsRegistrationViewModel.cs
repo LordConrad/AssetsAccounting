@@ -16,6 +16,11 @@ namespace AssetsAccounting.ViewModels
     {
         private readonly IProviderService _providerService;
         private readonly IAssetService _assetService;
+        private Asset _selectedAsset;
+        private Provider _selectedProvider;
+        private int _quantity;
+        private DateTime _date;
+        private string _docNumber;
 
         public IncomingAssetsRegistrationViewModel(IUnityContainer container)
         {
@@ -29,12 +34,83 @@ namespace AssetsAccounting.ViewModels
         }
 
         public IEnumerable<Asset> Assets { get; set; }
-        public Asset SelectedAsset { get; set; }
+
+        public Asset SelectedAsset
+        {
+            get { return _selectedAsset; }
+            set
+            {
+                if (_selectedAsset != value)
+                {
+                    _selectedAsset = value;
+                    RaiseEvents();
+                }
+            }
+        }
+
         public IEnumerable<Provider> Providers { get; set; }
-        public Provider SelectedProvider { get; set; }
-        public int Quantity { get; set; }
-        public DateTime Date { get; set; }
-        public string DocNumber { get; set; }
+
+        public Provider SelectedProvider
+        {
+            get { return _selectedProvider; }
+            set
+            {
+                if (_selectedProvider != value)
+                {
+                    _selectedProvider = value;
+                    RaiseEvents();
+                }
+            }
+        }
+
+        public int Quantity
+        {
+            get { return _quantity; }
+            set
+            {
+                if (_quantity != value)
+                {
+                    _quantity = value;
+                    RaiseEvents();
+                }
+            }
+        }
+
+        public DateTime Date
+        {
+            get { return _date; }
+            set
+            {
+                if (_date != value)
+                {
+                    _date = value;
+                    RaiseEvents();
+                }
+            }
+        }
+
+        public string DocNumber
+        {
+            get { return _docNumber; }
+            set
+            {
+                if (_docNumber != value)
+                {
+                    _docNumber = value;
+                    RaiseEvents();
+                }
+            }
+        }
+
+        private void RaiseEvents()
+        {
+            RaisePropertyChanged("SelectedAsset");
+            RaisePropertyChanged("SelectedProvider");
+            RaisePropertyChanged("Date");
+            RaisePropertyChanged("DocNumber");
+            RaisePropertyChanged("Quantity");
+            RaisePropertyChanged("AddIncomingAsset");
+        }
 
         private void UpdateDataSets(string arg)
         {
@@ -58,7 +134,7 @@ namespace AssetsAccounting.ViewModels
                     };
                     _assetService.AddStoredAsset(newIncomingAsset);
                     StoredAssetsListChangedEvent.Instance.Publish(SelectedAsset.Name);
-                });
+                }, () => !string.IsNullOrEmpty(DocNumber) && Quantity > 0 && SelectedProvider != null && SelectedAsset != null);
             }
         }
     }

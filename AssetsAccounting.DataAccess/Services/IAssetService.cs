@@ -15,5 +15,6 @@ namespace AssetsAccounting.DataAccess.Services
         void TrashAsset(TrashedAsset trashAsset);
         void AddResponsibleAsset(ResponsiblesAssets movedAsset);
         void SetQuantityStoredAsset(int id, int quantity);
+        IEnumerable<ResponsiblesAssets> GetResponsibleAssets(int id);
     }
 }

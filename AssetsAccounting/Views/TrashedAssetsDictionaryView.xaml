@@ -5,8 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <ListView ItemsSource="{Binding TrashedAssets}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
+        <ListView Grid.Row="1" ItemsSource="{Binding TrashedAssets}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>

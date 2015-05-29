@@ -114,6 +114,7 @@
     </ApplicationDefinition>
     <Compile Include="Events\AssetsListChangedEvent.cs" />
     <Compile Include="Events\ProvidersListChangedEvent.cs" />
+    <Compile Include="Events\ResponsibleAssetsListChangedEvent.cs" />
     <Compile Include="Events\ResponsiblesListChangedEvent.cs" />
     <Compile Include="Events\StoredAssetsListChangedEvent.cs" />
     <Compile Include="Events\TrashedAssetsListChangedEvent.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MoveAssetViewModel.cs" />
     <Compile Include="ViewModels\ProvidersDictionaryViewModel.cs" />
+    <Compile Include="ViewModels\ResponsibleAssetDictionaryViewModel.cs" />
     <Compile Include="ViewModels\ResponsiblesDictionaryViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\TrashAssetViewModel.cs" />
@@ -158,6 +160,9 @@
     </Compile>
     <Compile Include="Views\ProvidersDictionaryView.xaml.cs">
       <DependentUpon>ProvidersDictionaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResponsibleAssetDictionaryView.xaml.cs">
+      <DependentUpon>ResponsibleAssetDictionaryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ResponsiblesDictionaryView.xaml.cs">
       <DependentUpon>ResponsiblesDictionaryView.xaml</DependentUpon>
@@ -213,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProvidersDictionaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResponsibleAssetDictionaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

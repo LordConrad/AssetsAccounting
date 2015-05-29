@@ -24,6 +24,7 @@ namespace AssetsAccounting.ViewModels
             _providerService = container.Resolve<IProviderService>();
             UpdateProvidersList(string.Empty);
             ProvidersListChangedEvent.Instance.Subscribe(UpdateProvidersList);
+            
         }
 
         public IEnumerable<Provider> Providers

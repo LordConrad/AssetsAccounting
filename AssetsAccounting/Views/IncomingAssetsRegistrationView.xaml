@@ -6,6 +6,12 @@
              mc:Ignorable="d" 
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -19,17 +25,19 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label>Наименование материала</Label>
-        <ComboBox Grid.Row="1" ItemsSource="{Binding Assets}" SelectedItem="{Binding SelectedAsset, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
-        <Label Grid.Row="2">Поставщик</Label>
-        <ComboBox Grid.Row="3" ItemsSource="{Binding Providers}" SelectedItem="{Binding SelectedProvider, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
-        <Label Grid.Row="4">Количество</Label>
-        <xctk:IntegerUpDown Grid.Row="5" Value="{Binding Quantity}" Minimum="1" Maximum="99999"></xctk:IntegerUpDown>
-        <Label Grid.Row="6">Номер накладной</Label>
-        <TextBox Grid.Row="7" Text="{Binding DocNumber}"></TextBox>
-        <Label Grid.Row="8">Дата поступления</Label>
-        <DatePicker Grid.Row="9" SelectedDate="{Binding Date}"></DatePicker>
-        <Button Grid.Row="10" Command="{Binding AddIncomingAsset}">Сохранить</Button>
+        <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
+        <Label Grid.Row="1">Наименование материала</Label>
+        <ComboBox Grid.Row="2" ItemsSource="{Binding Assets}" SelectedItem="{Binding SelectedAsset, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
+        <Label Grid.Row="3">Поставщик</Label>
+        <ComboBox Grid.Row="4" ItemsSource="{Binding Providers}" SelectedItem="{Binding SelectedProvider, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
+        <Label Grid.Row="5">Количество</Label>
+        <xctk:IntegerUpDown Grid.Row="6" Value="{Binding Quantity}" Minimum="1" Maximum="99999"></xctk:IntegerUpDown>
+        <Label Grid.Row="7">Номер накладной</Label>
+        <TextBox Grid.Row="8" Text="{Binding DocNumber}"></TextBox>
+        <Label Grid.Row="9">Дата поступления</Label>
+        <DatePicker Grid.Row="10" SelectedDate="{Binding Date}"></DatePicker>
+        <Button Grid.Row="11" Command="{Binding AddIncomingAsset}">Сохранить</Button>
     </Grid>
 </UserControl>

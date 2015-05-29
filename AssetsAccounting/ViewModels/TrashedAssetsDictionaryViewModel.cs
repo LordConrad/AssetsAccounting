@@ -16,6 +16,7 @@ namespace AssetsAccounting.ViewModels
 
         public TrashedAssetsDictionaryViewModel(IUnityContainer container)
         {
+            HeaderText = "Списанные материалы";
             _assetService = container.Resolve<IAssetService>();
             UpdateTrashedAssets(string.Empty);
             TrashedAssetsListChangedEvent.Instance.Subscribe(UpdateTrashedAssets);

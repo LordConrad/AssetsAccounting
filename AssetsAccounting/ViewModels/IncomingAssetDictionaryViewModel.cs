@@ -16,9 +16,12 @@ namespace AssetsAccounting.ViewModels
 
         public IncomingAssetDictionaryViewModel(IUnityContainer container)
         {
+            HeaderText = "Материалы на складе";
             _assetService = container.Resolve<IAssetService>();
             UpdateStoredAssets(string.Empty);
             StoredAssetsListChangedEvent.Instance.Subscribe(UpdateStoredAssets);
+            ResponsibleAssetsListChangedEvent.Instance.Subscribe(UpdateStoredAssets);
+            TrashedAssetsListChangedEvent.Instance.Subscribe(UpdateStoredAssets);
         }
 
 

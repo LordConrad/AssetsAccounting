@@ -47,7 +47,7 @@ namespace AssetsAccounting.DataAccess.Services
             {
                 using (var context = new AssetsAccountingContext())
                 {
-                    context.StoredAssets.Add(asset);
+                    context.StoredAssets.Attach(asset);
                     context.SaveChanges();
                 }
             }
@@ -113,7 +113,7 @@ namespace AssetsAccounting.DataAccess.Services
             {
                 using (var context = new AssetsAccountingContext())
                 {
-                    context.ResponsiblesAssets.Add(movedAsset);
+                    context.ResponsiblesAssets.Attach(movedAsset);
                     context.SaveChanges();
                 }
             }
@@ -148,13 +148,30 @@ namespace AssetsAccounting.DataAccess.Services
             }
         }
 
+        public IEnumerable<ResponsiblesAssets> GetResponsibleAssets(int id)
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    return context.ResponsiblesAssets
+                        .Include(x => x.Asset)
+                        .ToList();
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
+
         public void AddAsset(Asset newAsset)
         {
             try
             {
                 using (var context = new AssetsAccountingContext())
                 {
-                    context.Assets.Add(newAsset);
+                    context.Assets.Attach(newAsset);
                     context.SaveChanges();
                 }
             }

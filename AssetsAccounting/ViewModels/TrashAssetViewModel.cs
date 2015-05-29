@@ -21,6 +21,7 @@ namespace AssetsAccounting.ViewModels
         
         public TrashAssetViewModel(IUnityContainer container)
         {
+            HeaderText = "Списание материалов";
             _assetService = container.Resolve<IAssetService>();
             UpdateAssets(string.Empty);
             TrashedAssetsListChangedEvent.Instance.Subscribe(UpdateAssets);
@@ -106,6 +107,7 @@ namespace AssetsAccounting.ViewModels
                     };
                     _assetService.TrashAsset(trashAsset);
                     _assetService.SetQuantityStoredAsset(SelectedAsset.Id, SelectedAsset.Quantity - Quantity);
+                    TrashedAssetsListChangedEvent.Instance.Publish(string.Empty);
                 }, () => SelectedAsset != null && Quantity > 0 && !string.IsNullOrEmpty(DocNumber));
             }
         }

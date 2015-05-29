@@ -23,6 +23,7 @@ namespace AssetsAccounting.ViewModels
 
         public MoveAssetViewModel(IUnityContainer container)
         {
+            HeaderText = "Перемещение материалов";
             _assetService = container.Resolve<IAssetService>();
             _responsibleService = container.Resolve<IResponsibleService>();
             UpdateDatasets(string.Empty);
@@ -118,6 +119,7 @@ namespace AssetsAccounting.ViewModels
                     };
                     _assetService.AddResponsibleAsset(movedAsset);
                     _assetService.SetQuantityStoredAsset(SelectedAsset.Id, SelectedAsset.Quantity - Quantity);
+                    ResponsibleAssetsListChangedEvent.Instance.Publish(string.Empty);
                 }, () => SelectedAsset != null && SelectedResponsible != null && !string.IsNullOrEmpty(DocNumber) && Quantity > 0);
             }
         }

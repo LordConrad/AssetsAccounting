@@ -8,17 +8,23 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using AssetsAccounting.Annotations;
+using AssetsAccounting.DataAccess.Services;
 using AssetsAccounting.Views;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Unity;
 
 namespace AssetsAccounting.ViewModels
 {
-    public class ShellViewModel : INotifyPropertyChanged
+    public class ShellViewModel : BaseViewModel
     {
         private IUnityContainer _container;
         private UserControl _currentView;
         private List<UserControl> _viewsList;
+
+        public void UpdateEnablingOptions()
+        {
+            RaisePropertyChanged("IsEditEnable");
+        }
 
         public ShellViewModel(IUnityContainer container)
         {
@@ -40,7 +46,7 @@ namespace AssetsAccounting.ViewModels
                     _viewsList.Add(value);
                 }
                 _currentView = _viewsList.FirstOrDefault(x => x.Equals(value));
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -100,15 +106,13 @@ namespace AssetsAccounting.ViewModels
         {
             get { return new DelegateCommand(() => CurrentView = _container.Resolve<MoveAssetView>()); }
         }
+
+
+        public ICommand ResponsibleAssetDictionaryViewCommand
+        {
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<ResponsibleAssetDictionaryView>()); }
+        }
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
