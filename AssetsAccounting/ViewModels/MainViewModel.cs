@@ -60,16 +60,15 @@ namespace AssetsAccounting.ViewModels
             {
                 return new DelegateCommand(() =>
                 {
-                    CurrentUser = _userService.Authenticate(Username, Password);
-                    if (CurrentUser == null)
+                    App.CurrentUser = _userService.Authenticate(Username, Password);
+                    if (App.CurrentUser == null)
                     {
                         MessageBox.Show("Неверно имя пользователя или пароль", "Ошибка", MessageBoxButton.OK,MessageBoxImage.Asterisk);
                     }
                     else
                     {
-                        MessageBox.Show("Текущий пользователь: " + CurrentUser.Username, "Успешно", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Текущий пользователь: " + App.CurrentUser.Username, "Успешно", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
-                    RaisePropertyChanged("CurrentUser");
                     var shell = _container.Resolve<ShellViewModel>();
                     shell.UpdateEnablingOptions();
                 }, () => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password));

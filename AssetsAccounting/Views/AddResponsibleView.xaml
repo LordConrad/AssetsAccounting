@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Style="{StaticResource LabelStyle}" Content="{Binding HeaderText}"></Label>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Width="300">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -28,14 +28,14 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0">ФИО мат.ответственного</Label>
-            <TextBox Grid.Row="1" Text="{Binding Name}"></TextBox>
+            <TextBox Grid.Row="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label Grid.Row="2">Должность</Label>
-            <TextBox Grid.Row="3" Text="{Binding Position}"></TextBox>
+            <TextBox Grid.Row="3" Text="{Binding Position, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label Grid.Row="4">Номер доверенности</Label>
-            <TextBox Grid.Row="5" Text="{Binding AuthorityNumber}"></TextBox>
+            <TextBox Grid.Row="5" Text="{Binding AuthorityNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </Grid>
         <StackPanel Grid.Row="2">
-            <Button Command="{Binding AddResponsibleCommand}">Добавить</Button>
+            <Button Command="{Binding AddResponsibleCommand}" Margin="0 20" Width="100">Добавить</Button>
         </StackPanel>
     </Grid>
 </UserControl>

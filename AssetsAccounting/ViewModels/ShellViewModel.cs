@@ -24,6 +24,8 @@ namespace AssetsAccounting.ViewModels
         public void UpdateEnablingOptions()
         {
             RaisePropertyChanged("IsEditEnable");
+            RaisePropertyChanged("IsReadEnable");
+            RaisePropertyChanged("IsUserLoggedIn");
         }
 
         public ShellViewModel(IUnityContainer container)
@@ -34,6 +36,14 @@ namespace AssetsAccounting.ViewModels
                 _container.Resolve<MainView>()
             };
             _currentView = _viewsList.FirstOrDefault();
+        }
+
+        public bool IsUserLoggedIn
+        {
+            get
+            {
+                return App.CurrentUser != null;
+            }
         }
 
         public UserControl CurrentView
@@ -54,17 +64,17 @@ namespace AssetsAccounting.ViewModels
 
         public ICommand AddAssetViewCommand
         {
-            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AddAssetView>()); }
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AddAssetView>(), () => IsEditEnable); }
         }
 
         public ICommand AddResponsibleViewCommand
         {
-            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AddResponsibleView>()); }
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AddResponsibleView>(), () => IsEditEnable); }
         }
 
-        public ICommand AddProviderCommand
+        public ICommand AddProviderViewCommand
         {
-            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AddProviderView>()); }
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AddProviderView>(), () => IsEditEnable); }
         }
 
         public ICommand ProvidersDictionaryCommand
@@ -112,6 +122,26 @@ namespace AssetsAccounting.ViewModels
         {
             get { return new DelegateCommand(() => CurrentView = _container.Resolve<ResponsibleAssetDictionaryView>()); }
         }
+
+        public ICommand LogoutCommand
+        {
+            get { return new DelegateCommand(() =>
+            {
+                App.CurrentUser = null;
+                RaisePropertyChanged("IsUserLoggedIn");
+                RaisePropertyChanged("IsEditEnable");
+                RaisePropertyChanged("IsReadEnable");
+                RaisePropertyChanged("LoginViewCommand");
+                var shell = _container.Resolve<ShellViewModel>();
+                shell.LoginViewCommand.Execute(null);
+            });}
+        }
+
+        public ICommand LoginViewCommand
+        {
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<MainView>(), () => !IsUserLoggedIn); }
+        }
+
         #endregion
 
     }

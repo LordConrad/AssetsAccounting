@@ -14,6 +14,7 @@ namespace AssetsAccounting.ViewModels
 {
     public class MoveAssetViewModel : BaseViewModel
     {
+        private readonly IUnityContainer _container;
         private readonly IAssetService _assetService;
         private readonly IResponsibleService _responsibleService;
         private StoredAsset _selectedAsset;
@@ -23,6 +24,7 @@ namespace AssetsAccounting.ViewModels
 
         public MoveAssetViewModel(IUnityContainer container)
         {
+            _container = container;
             HeaderText = "Перемещение материалов";
             _assetService = container.Resolve<IAssetService>();
             _responsibleService = container.Resolve<IResponsibleService>();
@@ -112,7 +114,7 @@ namespace AssetsAccounting.ViewModels
                     var movedAsset = new ResponsiblesAssets
                     {
                         ResponsibleAssetId = SelectedAsset.Id,
-                        Date = DateTime.Now,
+                        Date = DateTime.Now.Date,
                         DocNumber = DocNumber,
                         Quantity = Quantity,
                         ResponsibleId = SelectedResponsible.Id
@@ -120,6 +122,8 @@ namespace AssetsAccounting.ViewModels
                     _assetService.AddResponsibleAsset(movedAsset);
                     _assetService.SetQuantityStoredAsset(SelectedAsset.Id, SelectedAsset.Quantity - Quantity);
                     ResponsibleAssetsListChangedEvent.Instance.Publish(string.Empty);
+                    var shell = _container.Resolve<ShellViewModel>();
+                    shell.ResponsibleAssetDictionaryViewCommand.Execute(null);
                 }, () => SelectedAsset != null && SelectedResponsible != null && !string.IsNullOrEmpty(DocNumber) && Quantity > 0);
             }
         }

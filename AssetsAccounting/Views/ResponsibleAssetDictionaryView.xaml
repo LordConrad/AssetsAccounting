@@ -19,8 +19,10 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
-        <Label Grid.Row="1">Мат. ответственный</Label>
-        <ComboBox Grid.Row="2" ItemsSource="{Binding Responsibles}" SelectedItem="{Binding SelectedResponsible, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
+        <StackPanel Grid.Row="1" Width="300" Margin="0 0 0 10">
+        <Label >Мат. ответственный</Label>
+        <ComboBox ItemsSource="{Binding Responsibles}" SelectedItem="{Binding SelectedResponsible, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
+        </StackPanel>
         <ListView Grid.Row="3" ItemsSource="{Binding ResponsibleAssets}">
             <ListView.View>
                 <GridView>

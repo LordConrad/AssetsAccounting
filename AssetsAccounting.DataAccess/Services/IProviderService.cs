@@ -12,6 +12,5 @@ namespace AssetsAccounting.DataAccess.Services
         IEnumerable<Provider> GetProviders();
         Provider GetProviderById(int id);
         void AddProvider(Provider provider);
-        void EditProvider(Provider provider);
     }
 }

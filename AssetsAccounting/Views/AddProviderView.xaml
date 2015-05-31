@@ -11,7 +11,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Width="300">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -28,13 +28,13 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0">Наименование поставщика</Label>
-            <TextBox Grid.Row="1" Text="{Binding Name}"></TextBox>
+            <TextBox Grid.Row="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label Grid.Row="2">Адрес</Label>
-            <TextBox Grid.Row="3" Text="{Binding Address}"></TextBox>
+            <TextBox Grid.Row="3" Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label Grid.Row="4">Контактный телефон</Label>
-            <TextBox Grid.Row="5" Text="{Binding Phone}"></TextBox>
+            <TextBox Grid.Row="5" Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             
         </Grid>
-        <Button Grid.Row="2" Command="{Binding AddProviderCommand}" Content="Сохранить"></Button>
+        <Button Grid.Row="2" Command="{Binding AddProviderCommand}" Content="Сохранить" Margin="0 20" Width="100"></Button>
     </Grid>
 </UserControl>

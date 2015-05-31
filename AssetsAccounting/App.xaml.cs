@@ -18,6 +18,8 @@ namespace AssetsAccounting
     /// </summary>
     public partial class App : Application
     {
+        public static User CurrentUser { get; set; }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             IUnityContainer container = new UnityContainer();

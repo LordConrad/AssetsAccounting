@@ -86,3 +86,10 @@ d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\MoveAssetView.baml
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\MoveAssetView.g.cs
 D:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\ResponsibleAssetDictionaryView.baml
 D:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\ResponsibleAssetDictionaryView.g.cs
+d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.AvalonDock.dll
+d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.DataGrid.dll
+d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.Toolkit.dll
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\GeneratedInternalTypeHelper.g.cs

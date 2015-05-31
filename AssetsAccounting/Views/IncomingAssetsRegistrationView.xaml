@@ -15,29 +15,22 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
-        <Label Grid.Row="1">Наименование материала</Label>
-        <ComboBox Grid.Row="2" ItemsSource="{Binding Assets}" SelectedItem="{Binding SelectedAsset, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
-        <Label Grid.Row="3">Поставщик</Label>
-        <ComboBox Grid.Row="4" ItemsSource="{Binding Providers}" SelectedItem="{Binding SelectedProvider, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
-        <Label Grid.Row="5">Количество</Label>
-        <xctk:IntegerUpDown Grid.Row="6" Value="{Binding Quantity}" Minimum="1" Maximum="99999"></xctk:IntegerUpDown>
-        <Label Grid.Row="7">Номер накладной</Label>
-        <TextBox Grid.Row="8" Text="{Binding DocNumber}"></TextBox>
-        <Label Grid.Row="9">Дата поступления</Label>
-        <DatePicker Grid.Row="10" SelectedDate="{Binding Date}"></DatePicker>
-        <Button Grid.Row="11" Command="{Binding AddIncomingAsset}">Сохранить</Button>
+        <StackPanel Grid.Row="1" Width="300">
+            <Label>Наименование материала</Label>
+            <ComboBox ItemsSource="{Binding Assets, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAsset, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
+            <Label>Поставщик</Label>
+            <ComboBox ItemsSource="{Binding Providers, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProvider, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
+            <Label>Количество</Label>
+            <xctk:IntegerUpDown Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Minimum="1" Maximum="99999"></xctk:IntegerUpDown>
+            <Label>Номер накладной</Label>
+            <TextBox Text="{Binding DocNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Дата поступления</Label>
+            <DatePicker SelectedDate="{Binding Date, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
+        </StackPanel>
+        <Button Grid.Row="2" Command="{Binding AddIncomingAssetCommand}" Margin="0 20" Width="100">Сохранить</Button>
     </Grid>
 </UserControl>

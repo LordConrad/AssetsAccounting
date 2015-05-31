@@ -24,7 +24,7 @@ namespace AssetsAccounting.DataAccess.Models
         public DbSet<User> Users { get; set; }
     }
 
-    public class DatabaseInitializer : DropCreateDatabaseAlways<AssetsAccountingContext>
+    public class DatabaseInitializer : DropCreateDatabaseIfModelChanges<AssetsAccountingContext>
     {
         protected override void Seed(AssetsAccountingContext context)
         {

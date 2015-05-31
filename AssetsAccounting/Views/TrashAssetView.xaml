@@ -12,7 +12,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Width="300">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -37,6 +37,6 @@
         </StackPanel>
         <Label Grid.Row="4">Номер акта на списание</Label>
         <TextBox Grid.Row="5" Text="{Binding DocNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <Button Grid.Row="6" Command="{Binding TrashAssetCommand}">Списать</Button>
+        <Button Grid.Row="6" Command="{Binding TrashAssetCommand}" Width="100" Margin="0 20">Списать</Button>
     </Grid>
 </UserControl>

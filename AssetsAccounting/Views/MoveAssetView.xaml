@@ -12,7 +12,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Width="300">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -27,13 +27,13 @@
         </Grid.RowDefinitions>
         <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
         <Label Grid.Row="1">Мат. ответственное лицо</Label>
-        <ComboBox Grid.Row="2" ItemsSource="{Binding Responsibles}" SelectedItem="{Binding SelectedResponsible, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
+        <ComboBox Grid.Row="2" ItemsSource="{Binding Responsibles}" SelectedItem="{Binding SelectedResponsible, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name"></ComboBox>
         <Label Grid.Row="3">Материал</Label>
-        <ComboBox Grid.Row="4" ItemsSource="{Binding StoredAssets}" SelectedItem="{Binding SelectedAsset, Mode=OneWayToSource}" DisplayMemberPath="Asset.Name"></ComboBox>
+        <ComboBox Grid.Row="4" ItemsSource="{Binding StoredAssets}" SelectedItem="{Binding SelectedAsset, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Asset.Name"></ComboBox>
         <Label Grid.Row="5">Количество</Label>
         <xckg:IntegerUpDown Grid.Row="6" Minimum="0" Maximum="{Binding MaxQuantity}" Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}"></xckg:IntegerUpDown>
         <Label Grid.Row="7">Номер акта о перемещении</Label>
         <TextBox Grid.Row="8" Text="{Binding DocNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <Button Grid.Row="9" Command="{Binding MoveAssetCommand}">Переместить</Button>
+        <Button Grid.Row="9" Command="{Binding MoveAssetCommand}" Margin="0 20" Width="200">Переместить</Button>
     </Grid>
 </UserControl>

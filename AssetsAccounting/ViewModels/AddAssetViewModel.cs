@@ -14,11 +14,13 @@ namespace AssetsAccounting.ViewModels
 {
     public class AddAssetViewModel : BaseViewModel
     {
+        private readonly IUnityContainer _container;
         private readonly IAssetService _assetService;
         private string _name;
 
         public AddAssetViewModel(IUnityContainer container)
         {
+            _container = container;
             HeaderText = "Регистрация материальных ценностей";
             _assetService = container.Resolve<IAssetService>();
         }
@@ -49,6 +51,8 @@ namespace AssetsAccounting.ViewModels
                     };
                     _assetService.AddAsset(newAsset);
                     AssetsListChangedEvent.Instance.Publish(Name);
+                    var shell = _container.Resolve<ShellViewModel>();
+                    shell.AssetsDictionaryCommand.Execute(null);
                 }, () => !string.IsNullOrEmpty(Name));
             }
         }

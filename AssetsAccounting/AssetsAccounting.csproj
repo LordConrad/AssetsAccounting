@@ -112,6 +112,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Events\AssetsListChangedEvent.cs" />
     <Compile Include="Events\ProvidersListChangedEvent.cs" />
     <Compile Include="Events\ResponsibleAssetsListChangedEvent.cs" />

@@ -15,17 +15,54 @@ namespace AssetsAccounting.ViewModels
 {
     public class AddResponsibleViewModel : BaseViewModel
     {
+        private readonly IUnityContainer _container;
         private readonly IResponsibleService _responsibleService;
+        private string _name;
+        private string _position;
+        private string _authorityNumber;
 
         public AddResponsibleViewModel(IUnityContainer container)
         {
+            _container = container;
             HeaderText = "Добавление материально ответственного лица";
             _responsibleService = container.Resolve<IResponsibleService>();
         }
 
-        public string Name { get; set; }
-        public string Position { get; set; }
-        public string AuthorityNumber { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (value == _name) return;
+                _name = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("AddResponsibleCommand");
+            }
+        }
+
+        public string Position
+        {
+            get { return _position; }
+            set
+            {
+                if (value == _position) return;
+                _position = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("AddResponsibleCommand");
+            }
+        }
+
+        public string AuthorityNumber
+        {
+            get { return _authorityNumber; }
+            set
+            {
+                if (value == _authorityNumber) return;
+                _authorityNumber = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("AddResponsibleCommand");
+            }
+        }
 
         public ICommand AddResponsibleCommand
         {
@@ -39,7 +76,9 @@ namespace AssetsAccounting.ViewModels
                 };
                 _responsibleService.AddResponsible(responsible);
                 ResponsiblesListChangedEvent.Instance.Publish(Name);
-            });}
+                var shell = _container.Resolve<ShellViewModel>();
+                shell.ResponsiblesDictionaryCommand.Execute(null);
+            }, () => !string.IsNullOrEmpty(Position) && !string.IsNullOrEmpty(AuthorityNumber) && !string.IsNullOrEmpty(Name));}
         }
 
         

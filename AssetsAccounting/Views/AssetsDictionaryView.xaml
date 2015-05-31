@@ -19,6 +19,6 @@
         </Grid.RowDefinitions>
         <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
         <ListView Grid.Row="1" ItemsSource="{Binding Assets, Mode=OneWay}" DisplayMemberPath="Name"></ListView>
-        <Button Grid.Row="2" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.AddAssetViewCommand}">Добавить</Button>
+        <Button Grid.Row="2" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.AddAssetViewCommand}" Width="100" Margin="0 20">Добавить</Button>
     </Grid>
 </UserControl>

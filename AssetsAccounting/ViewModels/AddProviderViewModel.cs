@@ -15,7 +15,7 @@ namespace AssetsAccounting.ViewModels
 {
     public class AddProviderViewModel : BaseViewModel
     {
-        private Provider _provider;
+        private readonly IUnityContainer _container;
         private readonly IProviderService _providerService;
         private string _name;
         private string _address;
@@ -23,22 +23,10 @@ namespace AssetsAccounting.ViewModels
 
         public AddProviderViewModel(IUnityContainer container)
         {
+            _container = container;
             HeaderText = "Добавление поставщика";
             _providerService = container.Resolve<IProviderService>();
             
-        }
-
-        public Provider Provider
-        {
-            get { return _provider; }
-            set
-            {
-                if (!_provider.Equals(value))
-                {
-                    _provider = value;
-                    RaisePropertyChanged();
-                }
-            }
         }
 
         public ICommand AddProviderCommand
@@ -55,10 +43,19 @@ namespace AssetsAccounting.ViewModels
                     };
                     _providerService.AddProvider(newProvider);
                     ProvidersListChangedEvent.Instance.Publish(newProvider.Name);
+                    var shell = _container.Resolve<ShellViewModel>();
+                    shell.ProvidersDictionaryCommand.Execute(null);
                 }, () => !string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Address) && !string.IsNullOrEmpty(Phone));
             }
         }
 
+        private void RaisePropertiesChanged()
+        {
+            RaisePropertyChanged("Address");
+            RaisePropertyChanged("Name");
+            RaisePropertyChanged("Phone");
+            RaisePropertyChanged("AddProviderCommand");
+        }
 
         public string Name
         {
@@ -68,7 +65,7 @@ namespace AssetsAccounting.ViewModels
                 if (_name != value)
                 {
                     _name = value;
-                    RaisePropertyChanged();
+                    RaisePropertiesChanged();
                 }
             }
         }
@@ -81,7 +78,7 @@ namespace AssetsAccounting.ViewModels
                 if (_name != value)
                 {
                     _address = value;
-                    RaisePropertyChanged();
+                    RaisePropertiesChanged();
                 }
             }
         }
@@ -91,10 +88,10 @@ namespace AssetsAccounting.ViewModels
             get { return _phone; }
             set
             {
-                if (_phone != null)
+                if (_phone != value)
                 {
                     _phone = value;
-                    RaisePropertyChanged();
+                    RaisePropertiesChanged();
                 }
             }
         }

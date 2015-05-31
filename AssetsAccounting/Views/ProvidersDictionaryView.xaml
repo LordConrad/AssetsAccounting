@@ -20,7 +20,7 @@
         <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
         <ListView Grid.Row="1" ItemsSource="{Binding Providers}" DisplayMemberPath="Name"></ListView>
         <StackPanel Grid.Row="2">
-            <Button Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.AddProviderCommand}">Добавить</Button>
+            <Button Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.AddProviderViewCommand}" Margin="0 20" Width="100">Добавить</Button>
         </StackPanel>
     </Grid>
 </UserControl>

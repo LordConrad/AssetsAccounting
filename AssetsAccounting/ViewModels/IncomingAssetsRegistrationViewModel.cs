@@ -14,6 +14,7 @@ namespace AssetsAccounting.ViewModels
 {
     public class IncomingAssetsRegistrationViewModel : BaseViewModel
     {
+        private readonly IUnityContainer _container;
         private readonly IProviderService _providerService;
         private readonly IAssetService _assetService;
         private Asset _selectedAsset;
@@ -24,6 +25,7 @@ namespace AssetsAccounting.ViewModels
 
         public IncomingAssetsRegistrationViewModel(IUnityContainer container)
         {
+            _container = container;
             _providerService = container.Resolve<IProviderService>();
             _assetService = container.Resolve<IAssetService>();
             HeaderText = "Регистрация поступления материалов";
@@ -78,7 +80,7 @@ namespace AssetsAccounting.ViewModels
 
         public DateTime Date
         {
-            get { return _date; }
+            get { return _date.Date; }
             set
             {
                 if (_date != value)
@@ -109,7 +111,7 @@ namespace AssetsAccounting.ViewModels
             RaisePropertyChanged("Date");
             RaisePropertyChanged("DocNumber");
             RaisePropertyChanged("Quantity");
-            RaisePropertyChanged("AddIncomingAsset");
+            RaisePropertyChanged("AddIncomingAssetCommand");
         }
 
         private void UpdateDataSets(string arg)
@@ -118,7 +120,7 @@ namespace AssetsAccounting.ViewModels
             Providers = _providerService.GetProviders();
         }
 
-        public ICommand AddIncomingAsset
+        public ICommand AddIncomingAssetCommand
         {
             get
             {
@@ -126,14 +128,16 @@ namespace AssetsAccounting.ViewModels
                 {
                     var newIncomingAsset = new StoredAsset
                     {
-                        Asset = SelectedAsset,
+                        StoredAssetId = SelectedAsset.Id,
                         Date = Date,
                         DocNumber = DocNumber,
                         Quantity = Quantity,
-                        Provider = SelectedProvider
+                        StoredProviderId = SelectedProvider.Id
                     };
                     _assetService.AddStoredAsset(newIncomingAsset);
                     StoredAssetsListChangedEvent.Instance.Publish(SelectedAsset.Name);
+                    var shell = _container.Resolve<ShellViewModel>();
+                    shell.IncomingAssetDictionaryCommand.Execute(null);
                 }, () => !string.IsNullOrEmpty(DocNumber) && Quantity > 0 && SelectedProvider != null && SelectedAsset != null);
             }
         }

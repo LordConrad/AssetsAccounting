@@ -17,12 +17,12 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
-        <StackPanel Grid.Row="1" Orientation="Vertical">
+        <StackPanel Grid.Row="1" Orientation="Vertical" Width="200">
             <Label>Пользователь</Label>
             <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label>Пароль</Label>
             <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-            <Button Command="{Binding LoginCommand}">Вход</Button>
+            <Button Command="{Binding LoginCommand}" IsDefault="True" Margin="0 20 0 0">Вход</Button>
         </StackPanel>
     </Grid>
 </UserControl>

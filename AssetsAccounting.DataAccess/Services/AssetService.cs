@@ -47,7 +47,7 @@ namespace AssetsAccounting.DataAccess.Services
             {
                 using (var context = new AssetsAccountingContext())
                 {
-                    context.StoredAssets.Attach(asset);
+                    context.Entry(asset).State = EntityState.Added;
                     context.SaveChanges();
                 }
             }
@@ -113,7 +113,7 @@ namespace AssetsAccounting.DataAccess.Services
             {
                 using (var context = new AssetsAccountingContext())
                 {
-                    context.ResponsiblesAssets.Attach(movedAsset);
+                    context.Entry(movedAsset).State = EntityState.Added;
                     context.SaveChanges();
                 }
             }
@@ -171,7 +171,7 @@ namespace AssetsAccounting.DataAccess.Services
             {
                 using (var context = new AssetsAccountingContext())
                 {
-                    context.Assets.Attach(newAsset);
+                    context.Entry(newAsset).State = EntityState.Added;
                     context.SaveChanges();
                 }
             }

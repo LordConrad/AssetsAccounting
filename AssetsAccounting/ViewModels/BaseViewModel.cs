@@ -13,24 +13,16 @@ namespace AssetsAccounting.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        private User _currentUser;
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public User CurrentUser
-        {
-            get { return _currentUser; }
-            set
-            {
-                if (Equals(value, _currentUser)) return;
-                _currentUser = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged("IsEditEnable");
-            }
-        }
 
         public bool IsEditEnable
         {
-            get { return _currentUser != null && _currentUser.IsEditEnable; }
+            get { return App.CurrentUser != null && App.CurrentUser.IsEditEnable; }
+        }
+
+        public bool IsReadEnable
+        {
+            get { return App.CurrentUser != null; }
         }
 
         public string HeaderText { get; set; }

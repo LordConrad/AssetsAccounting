@@ -45,7 +45,7 @@ namespace AssetsAccounting.DataAccess.Services
             {
                 using (var context = new AssetsAccountingContext())
                 {
-                    context.Responsibles.Attach(responsible);
+                    context.Entry(responsible).State = EntityState.Added;
                     context.SaveChanges();
                 }
             }

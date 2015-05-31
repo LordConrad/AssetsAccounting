@@ -14,6 +14,7 @@ namespace AssetsAccounting.ViewModels
 {
     public class TrashAssetViewModel : BaseViewModel
     {
+        private readonly IUnityContainer _container;
         private readonly IAssetService _assetService;
         private StoredAsset _selectedAsset;
         private int _quantity;
@@ -21,6 +22,7 @@ namespace AssetsAccounting.ViewModels
         
         public TrashAssetViewModel(IUnityContainer container)
         {
+            _container = container;
             HeaderText = "Списание материалов";
             _assetService = container.Resolve<IAssetService>();
             UpdateAssets(string.Empty);
@@ -103,11 +105,13 @@ namespace AssetsAccounting.ViewModels
                         Date = SelectedAsset.Date,
                         DocNumber = DocNumber,
                         Quantity = Quantity,
-                        TrashedDate = DateTime.Now
+                        TrashedDate = DateTime.Now.Date
                     };
                     _assetService.TrashAsset(trashAsset);
                     _assetService.SetQuantityStoredAsset(SelectedAsset.Id, SelectedAsset.Quantity - Quantity);
                     TrashedAssetsListChangedEvent.Instance.Publish(string.Empty);
+                    var shell = _container.Resolve<ShellViewModel>();
+                    shell.TrashAssetsDictionaryViewCommand.Execute(null);
                 }, () => SelectedAsset != null && Quantity > 0 && !string.IsNullOrEmpty(DocNumber));
             }
         }

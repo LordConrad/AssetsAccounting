@@ -18,19 +18,15 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Style="{DynamicResource LabelStyle}" Content="{Binding HeaderText}"></Label>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Width="300">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Grid.Row="0">Наименование мат.ценности</Label>
-            <TextBox Grid.Row="1" Text="{Binding Name}"></TextBox>
+            <TextBox Grid.Row="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
         </Grid>
-        <Button Grid.Row="2" Command="{Binding SaveAssetCommand}">Сохранить</Button>
+        <Button Grid.Row="2" Command="{Binding SaveAssetCommand}" Margin="0 20" Width="100">Сохранить</Button>
     </Grid>
 </UserControl>
