@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\AssetsAccountingContext.cs" />
+    <Compile Include="Models\AssetType.cs" />
     <Compile Include="Models\Provider.cs" />
     <Compile Include="Models\Responsible.cs" />
     <Compile Include="Models\ResponsiblesAssets.cs" />

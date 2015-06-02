@@ -17,12 +17,15 @@ namespace AssetsAccounting.ViewModels
         private readonly IUnityContainer _container;
         private readonly IAssetService _assetService;
         private string _name;
+        private AssetType _selectedType;
 
         public AddAssetViewModel(IUnityContainer container)
         {
             _container = container;
             HeaderText = "Регистрация материальных ценностей";
             _assetService = container.Resolve<IAssetService>();
+            UpdateTypes(string.Empty);
+            AssetTypesListChangedEvent.Instance.Subscribe(UpdateTypes);
         }
 
         public string Name
@@ -39,6 +42,26 @@ namespace AssetsAccounting.ViewModels
             }
         }
 
+        public IEnumerable<AssetType> Types { get; set; }
+
+        public void UpdateTypes(string arg)
+        {
+            Types = _assetService.GetAssetTypes();
+            RaisePropertyChanged("Types");
+        }
+
+        public AssetType SelectedType
+        {
+            get { return _selectedType; }
+            set
+            {
+                if (Equals(value, _selectedType)) return;
+                _selectedType = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("SaveAssetCommand");
+            }
+        }
+
         public ICommand SaveAssetCommand
         {
             get
@@ -47,13 +70,14 @@ namespace AssetsAccounting.ViewModels
                 {
                     var newAsset = new Asset
                     {
-                        Name = Name
+                        Name = Name,
+                        TypeId = SelectedType.Id
                     };
                     _assetService.AddAsset(newAsset);
                     AssetsListChangedEvent.Instance.Publish(Name);
                     var shell = _container.Resolve<ShellViewModel>();
                     shell.AssetsDictionaryCommand.Execute(null);
-                }, () => !string.IsNullOrEmpty(Name));
+                }, () => !string.IsNullOrEmpty(Name) && SelectedType != null);
             }
         }
     }

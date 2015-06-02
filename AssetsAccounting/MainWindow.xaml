@@ -32,6 +32,7 @@
                 <MenuItem Header="Справочники" IsEnabled="{Binding IsReadEnable}">
                     <MenuItem Header="Справочник поставщиков" Command="{Binding ProvidersDictionaryCommand}"></MenuItem>
                     <MenuItem Header="Справочник материально ответственных лиц" Command="{Binding ResponsiblesDictionaryCommand}"></MenuItem>
+                    <MenuItem Header="Справочник типов материалов" Command="{Binding AssetTypesDictionaryCommand}"></MenuItem>
                     <MenuItem Header="Справочник материалов" Command="{Binding AssetsDictionaryCommand}"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Пользователь">

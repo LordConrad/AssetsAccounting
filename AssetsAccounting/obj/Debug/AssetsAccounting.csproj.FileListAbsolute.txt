@@ -93,3 +93,9 @@ d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.AvalonDock.The
 d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.DataGrid.dll
 d:\Projects\AssetsAccounting\AssetsAccounting\bin\Debug\Xceed.Wpf.Toolkit.dll
 d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\GeneratedInternalTypeHelper.g.cs
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Styles.baml
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\App.baml
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\AddAssetTypeView.baml
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\AssetTypesDictionaryView.baml
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\AddAssetTypeView.g.cs
+d:\Projects\AssetsAccounting\AssetsAccounting\obj\Debug\Views\AssetTypesDictionaryView.g.cs

@@ -5,12 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <UserControl.Resources>
-        <Style TargetType="Label" x:Key="LabelStyle">
-            <Setter Property="FontSize" Value="18"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-        </Style>
-    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -22,10 +17,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0">Наименование мат.ценности</Label>
+            <Label Grid.Row="0">Наименование материала</Label>
             <TextBox Grid.Row="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-
+            <Label Grid.Row="2">Тип материала</Label>
+            <ComboBox Grid.Row="3" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" DisplayMemberPath="Name"></ComboBox>
         </Grid>
         <Button Grid.Row="2" Command="{Binding SaveAssetCommand}" Margin="0 20" Width="100">Сохранить</Button>
     </Grid>

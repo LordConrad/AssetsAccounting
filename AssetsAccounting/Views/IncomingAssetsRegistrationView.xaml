@@ -5,12 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:conv="clr-namespace:AssetsAccounting.Converters">
     <UserControl.Resources>
-        <Style TargetType="Label" x:Key="LabelStyle">
-            <Setter Property="FontSize" Value="18"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-        </Style>
+        <conv:StringToIntConverter x:Key="StringToIntConverter"></conv:StringToIntConverter>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -28,6 +26,10 @@
             <xctk:IntegerUpDown Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Minimum="1" Maximum="99999"></xctk:IntegerUpDown>
             <Label>Номер накладной</Label>
             <TextBox Text="{Binding DocNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Цена</Label>
+            <TextBox x:Name="PriceBox" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToIntConverter}, ConverterParameter=PriceBox.Text}"></TextBox>
+            <Label>Субсчет</Label>
+            <TextBox Text="{Binding Invoice, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label>Дата поступления</Label>
             <DatePicker SelectedDate="{Binding Date, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
         </StackPanel>

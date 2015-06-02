@@ -113,18 +113,23 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\DateTimeToDateConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Converters\StringToIntConverter.cs" />
     <Compile Include="Events\AssetsListChangedEvent.cs" />
+    <Compile Include="Events\AssetTypesListChangedEvent.cs" />
     <Compile Include="Events\ProvidersListChangedEvent.cs" />
     <Compile Include="Events\ResponsibleAssetsListChangedEvent.cs" />
     <Compile Include="Events\ResponsiblesListChangedEvent.cs" />
     <Compile Include="Events\StoredAssetsListChangedEvent.cs" />
     <Compile Include="Events\TrashedAssetsListChangedEvent.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModels\AddAssetTypeViewModel.cs" />
     <Compile Include="ViewModels\AddAssetViewModel.cs" />
     <Compile Include="ViewModels\AddProviderViewModel.cs" />
     <Compile Include="ViewModels\AddResponsibleViewModel.cs" />
     <Compile Include="ViewModels\AssetsDictionaryViewModel.cs" />
+    <Compile Include="ViewModels\AssetTypesDictionaryViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\IncomingAssetDictionaryViewModel.cs" />
     <Compile Include="ViewModels\IncomingAssetsRegistrationViewModel.cs" />
@@ -136,6 +141,9 @@
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\TrashAssetViewModel.cs" />
     <Compile Include="ViewModels\TrashedAssetsDictionaryViewModel.cs" />
+    <Compile Include="Views\AddAssetTypeView.xaml.cs">
+      <DependentUpon>AddAssetTypeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddAssetView.xaml.cs">
       <DependentUpon>AddAssetView.xaml</DependentUpon>
     </Compile>
@@ -147,6 +155,9 @@
     </Compile>
     <Compile Include="Views\AssetsDictionaryView.xaml.cs">
       <DependentUpon>AssetsDictionaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AssetTypesDictionaryView.xaml.cs">
+      <DependentUpon>AssetTypesDictionaryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\IncomingAssetDictionaryView.xaml.cs">
       <DependentUpon>IncomingAssetDictionaryView.xaml</DependentUpon>
@@ -187,6 +198,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddAssetTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddAssetView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AssetsDictionaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AssetTypesDictionaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -274,9 +297,7 @@
       <Name>AssetsAccounting.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

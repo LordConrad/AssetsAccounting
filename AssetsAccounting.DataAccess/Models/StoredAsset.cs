@@ -18,6 +18,8 @@ namespace AssetsAccounting.DataAccess.Models
         public int StoredProviderId { get; set; }
         public string DocNumber { get; set; }
         public int Quantity { get; set; }
+        public int Price { get; set; }
+        public string Invoice { get; set; }
         public DateTime Date { get; set; }
 
         [ForeignKey("StoredAssetId")]

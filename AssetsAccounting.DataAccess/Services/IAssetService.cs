@@ -16,5 +16,7 @@ namespace AssetsAccounting.DataAccess.Services
         void AddResponsibleAsset(ResponsiblesAssets movedAsset);
         void SetQuantityStoredAsset(int id, int quantity);
         IEnumerable<ResponsiblesAssets> GetResponsibleAssets(int id);
+        IEnumerable<AssetType> GetAssetTypes();
+        void AddAssetType(AssetType newAssetType);
     }
 }

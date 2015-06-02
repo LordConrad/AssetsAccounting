@@ -117,12 +117,20 @@ namespace AssetsAccounting.ViewModels
             get { return new DelegateCommand(() => CurrentView = _container.Resolve<MoveAssetView>()); }
         }
 
-
         public ICommand ResponsibleAssetDictionaryViewCommand
         {
             get { return new DelegateCommand(() => CurrentView = _container.Resolve<ResponsibleAssetDictionaryView>()); }
         }
 
+        public ICommand AssetTypesDictionaryCommand
+        {
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AssetTypesDictionaryView>()); }
+        }
+
+        public ICommand AddAssetTypeViewCommand
+        {
+            get { return new DelegateCommand(() => CurrentView = _container.Resolve<AddAssetTypeView>(), () => IsEditEnable); }
+        }
         public ICommand LogoutCommand
         {
             get { return new DelegateCommand(() =>

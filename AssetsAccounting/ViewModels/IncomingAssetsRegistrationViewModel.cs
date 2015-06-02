@@ -22,6 +22,8 @@ namespace AssetsAccounting.ViewModels
         private int _quantity;
         private DateTime _date;
         private string _docNumber;
+        private int _price;
+        private string _invoice;
 
         public IncomingAssetsRegistrationViewModel(IUnityContainer container)
         {
@@ -45,7 +47,8 @@ namespace AssetsAccounting.ViewModels
                 if (_selectedAsset != value)
                 {
                     _selectedAsset = value;
-                    RaiseEvents();
+                    RaisePropertyChanged();
+                    RaisePropertyChanged("AddIncomingAssetCommand");
                 }
             }
         }
@@ -60,7 +63,8 @@ namespace AssetsAccounting.ViewModels
                 if (_selectedProvider != value)
                 {
                     _selectedProvider = value;
-                    RaiseEvents();
+                    RaisePropertyChanged();
+                    RaisePropertyChanged("AddIncomingAssetCommand");
                 }
             }
         }
@@ -73,8 +77,33 @@ namespace AssetsAccounting.ViewModels
                 if (_quantity != value)
                 {
                     _quantity = value;
-                    RaiseEvents();
+                    RaisePropertyChanged();
+                    RaisePropertyChanged("AddIncomingAssetCommand");
                 }
+            }
+        }
+
+        public int Price
+        {
+            get { return _price; }
+            set
+            {
+                if (value == _price) return;
+                _price = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("AddIncomingAssetCommand");
+            }
+        }
+
+        public string Invoice
+        {
+            get { return _invoice; }
+            set
+            {
+                if (value == _invoice) return;
+                _invoice = value;
+                RaisePropertyChanged();
+                RaisePropertyChanged("AddIncomingAssetCommand");
             }
         }
 
@@ -86,7 +115,8 @@ namespace AssetsAccounting.ViewModels
                 if (_date != value)
                 {
                     _date = value;
-                    RaiseEvents();
+                    RaisePropertyChanged();
+                    RaisePropertyChanged("AddIncomingAssetCommand");
                 }
             }
         }
@@ -99,21 +129,13 @@ namespace AssetsAccounting.ViewModels
                 if (_docNumber != value)
                 {
                     _docNumber = value;
-                    RaiseEvents();
+                    RaisePropertyChanged();
+                    RaisePropertyChanged("AddIncomingAssetCommand");
                 }
             }
         }
 
-        private void RaiseEvents()
-        {
-            RaisePropertyChanged("SelectedAsset");
-            RaisePropertyChanged("SelectedProvider");
-            RaisePropertyChanged("Date");
-            RaisePropertyChanged("DocNumber");
-            RaisePropertyChanged("Quantity");
-            RaisePropertyChanged("AddIncomingAssetCommand");
-        }
-
+        
         private void UpdateDataSets(string arg)
         {
             Assets = _assetService.GetAssets();
@@ -132,13 +154,15 @@ namespace AssetsAccounting.ViewModels
                         Date = Date,
                         DocNumber = DocNumber,
                         Quantity = Quantity,
-                        StoredProviderId = SelectedProvider.Id
+                        StoredProviderId = SelectedProvider.Id,
+                        Price = Price,
+                        Invoice = Invoice
                     };
                     _assetService.AddStoredAsset(newIncomingAsset);
                     StoredAssetsListChangedEvent.Instance.Publish(SelectedAsset.Name);
                     var shell = _container.Resolve<ShellViewModel>();
                     shell.IncomingAssetDictionaryCommand.Execute(null);
-                }, () => !string.IsNullOrEmpty(DocNumber) && Quantity > 0 && SelectedProvider != null && SelectedAsset != null);
+                }, () => !string.IsNullOrEmpty(DocNumber) && Quantity > 0 && SelectedProvider != null && SelectedAsset != null && Price > 0 && !string.IsNullOrEmpty(Invoice));
             }
         }
     }

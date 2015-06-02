@@ -40,6 +40,8 @@ namespace AssetsAccounting
             container.RegisterType<ProvidersDictionaryViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<ResponsiblesDictionaryViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<AddProviderViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<AddAssetTypeViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<AssetTypesDictionaryViewModel>(new ContainerControlledLifetimeManager());
 
             #endregion
 

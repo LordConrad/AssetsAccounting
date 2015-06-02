@@ -165,6 +165,36 @@ namespace AssetsAccounting.DataAccess.Services
             return null;
         }
 
+        public IEnumerable<AssetType> GetAssetTypes()
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    return context.AssetTypes.ToList();
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
+
+        public void AddAssetType(AssetType newAssetType)
+        {
+            try
+            {
+                using (var context = new AssetsAccountingContext())
+                {
+                    context.Entry(newAssetType).State = EntityState.Added;
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
         public void AddAsset(Asset newAsset)
         {
             try
@@ -179,5 +209,6 @@ namespace AssetsAccounting.DataAccess.Services
             {
             }
         }
+
     }
 }

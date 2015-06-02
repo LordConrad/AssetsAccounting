@@ -15,6 +15,8 @@ namespace AssetsAccounting.DataAccess.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
+        public int TypeId { get; set; }
         
         [ForeignKey("ResponsibleAssetId")]
         public virtual ICollection<ResponsiblesAssets> ResponsiblesAssets { get; set; }
@@ -22,5 +24,7 @@ namespace AssetsAccounting.DataAccess.Models
         public virtual ICollection<StoredAsset> StoredAssets { get; set; } 
         [ForeignKey("TrashedAssetId")]
         public virtual ICollection<TrashedAsset> TrashedAssets { get; set; } 
+        [ForeignKey("TypeId")]
+        public AssetType AssetType { get; set; }
     }
 }
